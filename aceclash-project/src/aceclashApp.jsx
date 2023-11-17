@@ -1,7 +1,9 @@
-
+import { AppRouter } from "./router/AppRouter"
 
 export const AceclashApp = () => {
   return (
-    <div>aceclashApp</div>
+    <div>
+    <AppRouter/>
+    </div>
   )
 }
