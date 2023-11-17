@@ -8,11 +8,17 @@ export const Login = () => {
        
        <h1>Login</h1>
        <form >
-           <label htmlFor="username">Username</label>
+          
            <input
-              
+            placeholder='Email'
            />
-           <button>Sign in</button>
+
+          <input
+            placeholder='Password'
+           />
+
+
+        <button>Sign in</button>
        </form>
        <div className="p-container">
        <p>
