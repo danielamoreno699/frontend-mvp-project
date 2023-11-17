@@ -2,6 +2,6 @@
 
 export const RegisterNewUser = () => {
   return (
-    <div>Register</div>
+    <h1>Register</h1>
   )
 }
