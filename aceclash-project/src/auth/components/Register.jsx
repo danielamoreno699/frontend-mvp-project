@@ -9,6 +9,13 @@ export const RegisterNewUser = () => {
 
         <h1>Register</h1>
         <form >
+
+        <input
+            type="text"
+            id="img"
+            name="img"
+            placeholder="img url"
+            />
           
             <input
             type="text"
