@@ -1,14 +1,16 @@
 import { useDispatch, useSelector } from "react-redux"
-import appApi from "../api/authApi"
-import { onChecking, onLogin, onLogout, clearErrorMessage } from "../store/auth/authSlice"
+import appApi from "../../api/authApi"
+import { onChecking, onLogin, onLogout, clearErrorMessage} from "./";
 
-const useAuthStore = () => {
-    const {status, user, errorMessage} = useSelector(state => state.auth)
-    const dispatch = useDispatch()
+
+    
 
 
     // function that registers new user 
-    const RegisterNewUser = async({img, name, last_name, email, password}) => {
+   export  const CreateNewUser = async({img, name, last_name, email, password}) => {
+    
+    const {status, user, errorMessage} = useSelector(state => state.auth)
+    const dispatch = useDispatch()
     dispatch(onChecking())
         
     try {
@@ -29,17 +31,18 @@ const useAuthStore = () => {
             dispatch(clearErrorMessage())
         }, 10);
     }
-    
-    }
 
     return{
         status, 
         user, 
         errorMessage,
 
-        RegisterNewUser
+        CreateNewUser
+    }
+    
     }
 
-}
+  
 
-export default useAuthStore
+
+

@@ -1,6 +1,7 @@
 import '../styles/register.css'
-import { useMemo, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import {  useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { CreateNewUser } from '../../store/auth/thunks'
 
 
 
@@ -20,11 +21,12 @@ export const RegisterNewUser = () => {
 //    const userRef = useRef();
 //    const errRef = useRef();
 
-  const [setFormSubmitted] = useState(false)
+// Remove the unused variable declaration
+// const [formSubmitted, setFormSubmitted] = useState(false)
 
-  const { status} = useSelector(state => state.auth)
+//   const { status} = useSelector(state => state.auth)
 
-  const isCheckingAuthentication = useMemo( () => status === 'checking', [status] )
+//   const isCheckingAuthentication = useMemo( () => status === 'checking', [status] )
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -37,10 +39,8 @@ export const RegisterNewUser = () => {
 
   const onSubmit = (event) =>{
     event.preventDefault()
-    setFormSubmitted(true)
-
-
-   dispatch(RegisterNewUser(formData))
+    console.log(formData)
+   dispatch(CreateNewUser(formData))
 
   }
 
@@ -77,12 +77,12 @@ export const RegisterNewUser = () => {
 
             <input
             type="text"
-            id="lastname"
-            name="lastname"
+            id="last_name"
+            name="last_name"
             value={formData.last_name}
             onChange={handleInputChange}
             required
-            placeholder="Lastname"
+            placeholder="Last name"
             />
 
             <input
@@ -107,8 +107,8 @@ export const RegisterNewUser = () => {
 
             <input
             type="password"
-            id="ConfirmPassword"
-            name="ConfirmPassword"
+            id="confirmPassword"
+            name="confirmPassword"
             value={formData.confirmPassword}
             onChange={handleInputChange}
             required
@@ -116,7 +116,7 @@ export const RegisterNewUser = () => {
             />
           <button 
             type="submit"
-            disabled={isCheckingAuthentication}
+            // disabled={isCheckingAuthentication}
           
           >
                 Sign up
