@@ -3,14 +3,14 @@ import appApi from "../../api/authApi"
 import { onChecking, onLogin, onLogout, clearErrorMessage} from "./";
 
 
-    export const CreateNewUser = ({ img, name, last_name, email, password }) => {
+    export const CreateNewUser = (data) => {
       return async (dispatch) => {
         dispatch(onChecking());
     
         try {
-          const { data } = await appApi.post(
+           await appApi.post(
             '/register',
-            { img, name, last_name, email, password },
+            data,
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -21,6 +21,7 @@ import { onChecking, onLogin, onLogout, clearErrorMessage} from "./";
           localStorage.setItem('token', data.token);
           localStorage.setItem('token-start-date', new Date().getTime());
           dispatch(onLogin({ _id: data._id, email: data.email, role: data.role }));
+          return data
         } catch (error) {
           dispatch(onLogout(error.response.data?.message) || '');
           setTimeout(() => {
