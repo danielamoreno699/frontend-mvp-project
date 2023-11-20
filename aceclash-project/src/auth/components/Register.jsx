@@ -3,11 +3,11 @@ import {  useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { CreateNewUser } from '../../store/auth/thunks'
 import Swal from 'sweetalert2'
-//import { Navigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 
 export const RegisterNewUser = () => {
-
+  const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         img: '',
@@ -45,7 +45,8 @@ export const RegisterNewUser = () => {
           title: 'User has been registered successfully',
           text: 'Please login to continue',
         })
-        //Navigate('/auth/login')
+  
+        navigate('/auth/login');
       }
     } catch (error) {
       console.error('Error creating user', error);
