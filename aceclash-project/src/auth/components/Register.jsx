@@ -19,15 +19,7 @@ export const RegisterNewUser = () => {
       });
 
    const dispatch = useDispatch()
-//    const userRef = useRef();
-//    const errRef = useRef();
 
-// Remove the unused variable declaration
-// const [formSubmitted, setFormSubmitted] = useState(false)
-
-//   const { status} = useSelector(state => state.auth)
-
-//   const isCheckingAuthentication = useMemo( () => status === 'checking', [status] )
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -38,12 +30,13 @@ export const RegisterNewUser = () => {
   };
 
 
-  const onSubmit = (event) =>{
+  const onSubmit = async(event) =>{
     event.preventDefault()
     console.log(formData)
-
+    const response =  await dispatch(CreateNewUser(formData))
     try {
-      const response =  dispatch(CreateNewUser(formData))
+    
+      // const response =  dispatch(CreateNewUser(formData))
       console.log(response)
       if (response) {
         Swal.fire({
