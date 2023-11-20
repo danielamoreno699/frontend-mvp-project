@@ -2,6 +2,7 @@ import '../styles/register.css'
 import {  useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { CreateNewUser } from '../../store/auth/thunks'
+import Swal from 'sweetalert2'
 
 
 
@@ -40,7 +41,26 @@ export const RegisterNewUser = () => {
   const onSubmit = (event) =>{
     event.preventDefault()
     console.log(formData)
-   dispatch(CreateNewUser(formData))
+
+    try {
+      const response =  dispatch(CreateNewUser(formData))
+      console.log(response)
+      if (response) {
+        Swal.fire({
+    
+          icon: 'success',
+          title: 'User has been registered successfully',
+          text: 'Please login to continue',
+        })
+      }
+    } catch (error) {
+      console.error('Error creating user', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'An error occurred while creating the user.',
+      });
+    }
 
   }
 
