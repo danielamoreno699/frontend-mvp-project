@@ -12,15 +12,8 @@ import { onChecking, onLogin, onLogout, clearErrorMessage} from "./";
            await appApi.post(
             '/register',
             data,
-            {
-              headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`,
-              },
-            }
           );
     
-          localStorage.setItem('token', data.token);
-          localStorage.setItem('token-start-date', new Date().getTime());
           dispatch(onLogin({ _id: data._id, email: data.email, role: data.role }));
           return data
         } catch (error) {
@@ -48,8 +41,10 @@ import { onChecking, onLogin, onLogout, clearErrorMessage} from "./";
               },
             }
           );
-    
-          localStorage.setItem('token', response.data.token);
+          
+          console.log(response.data)
+
+          localStorage.setItem('token', response.data['data']);
           localStorage.setItem('token-start-date', new Date().getTime());
           dispatch(onLogin({ _id: response.data._id, email: response.data.email, role: response.data.role }));
           return response.data;
