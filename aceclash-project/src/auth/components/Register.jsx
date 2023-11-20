@@ -9,6 +9,9 @@ import { useNavigate } from "react-router-dom";
 export const RegisterNewUser = () => {
   const navigate = useNavigate();
 
+      
+
+
     const [formData, setFormData] = useState({
         img: '',
         name: '',

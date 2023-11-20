@@ -25,7 +25,13 @@ export const useForm = ( initialForm = {}, formValidations = {}) => {
         return true;
     }, [ formValidation ])
 
-
+    const onInputChange = ({ target }) => {
+        const { name, value } = target;
+        setFormState({
+            ...formState,
+            [ name ]: value
+        });
+    }
 
     const onResetForm = () => {
         setFormState( initialForm );
@@ -50,6 +56,7 @@ export const useForm = ( initialForm = {}, formValidations = {}) => {
         ...formState,
         formState,
         onResetForm,
+        onInputChange,
 
         ...formValidation,
         isFormValid
