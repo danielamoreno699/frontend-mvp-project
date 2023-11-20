@@ -32,7 +32,7 @@ import { onChecking, onLogin, onLogout, clearErrorMessage} from "./";
     };
 
 
-    export const LoginUser = async({email, password}) => {
+    export const loginUser = async({email, password}) => {
       return async (dispatch) => {
         dispatch(onChecking());
         const data = {email, password}
