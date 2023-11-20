@@ -131,7 +131,7 @@ export const RegisterNewUser = () => {
             />
           <button 
             type="submit"
-            // disabled={isCheckingAuthentication}
+            //disabled={isCheckingAuthentication}
           
           >
                 Sign up
