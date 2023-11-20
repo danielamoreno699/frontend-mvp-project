@@ -34,12 +34,12 @@ import { onChecking, onLogin, onLogout, clearErrorMessage} from "./";
 
 
     //login user
-    export const loginUser = async(data) => {
+    export const loginUser = (data) => {
       return async (dispatch) => {
         dispatch(onChecking());
-        
+    
         try {
-          await appApi.post(
+          const response = await appApi.post(
             '/login',
             data,
             {
@@ -49,10 +49,10 @@ import { onChecking, onLogin, onLogout, clearErrorMessage} from "./";
             }
           );
     
-          localStorage.setItem('token', data.token);
+          localStorage.setItem('token', response.data.token);
           localStorage.setItem('token-start-date', new Date().getTime());
-          dispatch(onLogin({ _id: data._id, email: data.email, role: data.role }));
-          return data
+          dispatch(onLogin({ _id: response.data._id, email: response.data.email, role: response.data.role }));
+          return response.data;
         } catch (error) {
           dispatch(onLogout(error.response.data?.message) || '');
           setTimeout(() => {
@@ -60,7 +60,7 @@ import { onChecking, onLogin, onLogout, clearErrorMessage} from "./";
           }, 10);
         }
       };
-    }
+    };
     
 
   
