@@ -1,7 +1,7 @@
 import '../styles/login.css'
 import {  useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { loginUser} from '../../store/auth/thunks'
+import { loginUser } from '../../store/auth'
 import Swal from 'sweetalert2'
 import { useNavigate } from "react-router-dom";
 
