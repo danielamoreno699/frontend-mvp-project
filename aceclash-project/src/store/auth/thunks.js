@@ -43,11 +43,12 @@ import { onChecking, onLogin, onLogout, clearErrorMessage} from "./";
           );
           
           const user = response.data['user']
-          console.log(response.data)
-          console.log('user', response.data['user'])
+          // console.log(response.data)
+          // console.log('user', response.data['user'])
 
           localStorage.setItem('token', response.data['data']);
           localStorage.setItem('token-start-date', new Date().getTime());
+          localStorage.setItem('user', JSON.stringify(user));
           dispatch(onLogin({ _id: user._id, email: user.email, role: user.role }));
           return response.data;
         } catch (error) {
@@ -59,29 +60,37 @@ import { onChecking, onLogin, onLogout, clearErrorMessage} from "./";
       };
     };
 
-    //persistance of user login when he refreshes
 
-    export const persistLogin = () => {
-      return async (dispatch) => {
-        dispatch(onChecking());
-    
-        try {
-          const user = response.data;
-          const response = await appApi.get(`/session/${user._id}`);
 
-          console.log('user', user)
-          console.log('response', response)
-          
-          dispatch(onLogin({ _id: user._id, email: user.email, role: user.role }));
-        } catch (error) {
-          dispatch(onLogout(error.response.data?.message) || '');
-          setTimeout(() => {
-            dispatch(clearErrorMessage());
-          }, 10);
-        }
-      };
+// persistLogin action
+
+export const persistLogin = (userId) => {
+  return async (dispatch) => {
+    dispatch(onChecking());
+
+    try {
+      
+      const response = await appApi.get(`/session/${userId}`); 
+      const user = response.data.data; 
+
+      console.log('userpersist', user);
+
+      dispatch(onLogin({
+        _id: user._id,
+        email: user.email,
+        role: user.role,
+      
+      }));
+    } catch (error) {
+      dispatch(onLogout(error.response) || '');
+      setTimeout(() => {
+        dispatch(clearErrorMessage());
+      }, 10);
     }
-    
+  };
+};
+
+
 
   
 

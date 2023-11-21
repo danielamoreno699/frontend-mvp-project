@@ -1,13 +1,22 @@
 // AppRouter.js
-
+import { useEffect } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { AuthRoutes } from "../auth/routes/AuthRoutes";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import NavbarAdmin from "../admin/components/Navbar";
+import { persistLogin } from "../store/auth";
 
 export const AppRouter = () => {
     const authStatus = useSelector((state) => state.auth.status);
     const user = useSelector((state) => state.auth.user);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        const storedUser = JSON.parse(localStorage.getItem('user'));
+        if (storedUser) {
+          dispatch(persistLogin(storedUser._id));
+        }
+      }, []);
 
   
     return (
