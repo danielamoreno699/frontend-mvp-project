@@ -9,11 +9,9 @@ import { persistLogin } from "../store/auth";
 export const AppRouter = () => {
     const authStatus = useSelector((state) => state.auth.status);
     const user = useSelector((state) => state.auth.user);
-    
-    
     const dispatch = useDispatch();
-    //const [loading, setLoading] = useState(true);
 
+    // data persistence of user during session
     useEffect(() => {
         const fetchPersistedUser = async () => {
             const storedUser = JSON.parse(localStorage.getItem('user'));
