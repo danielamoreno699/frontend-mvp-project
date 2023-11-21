@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { loginUser } from '../../store/auth/thunks';
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
+import  InputForm  from './inputForm'
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -54,21 +55,25 @@ export const Login = () => {
         <section className="login-section">
           <h1>Login</h1>
           <form onSubmit={onSubmit}>
-            <input
+            <InputForm
               placeholder='Email'
               type="email"
               id="email"
               name="email"
               value={formData.email}
+              required
               onChange={handleInputChange}
+              errorMessage='enter your email'
             />
-            <input
+            <InputForm
               placeholder='Password'
               type="password"
               id="password"
               name="password"
+              required
               value={formData.password}
               onChange={handleInputChange}
+              errorMessage='enter your password'
             />
             <button type='submit'>
               Sign in

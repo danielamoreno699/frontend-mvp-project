@@ -36,7 +36,7 @@ export const RegisterNewUser = () => {
 
   const onSubmit = async(event) =>{
     event.preventDefault()
-    console.log(formData)
+   
     
     try {
     
@@ -65,7 +65,7 @@ export const RegisterNewUser = () => {
   }
 
 
-  console.log(formData)
+
 
   return (
     <>
