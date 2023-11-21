@@ -3,6 +3,7 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import { AuthRoutes } from "../auth/routes/AuthRoutes";
 import { useSelector } from 'react-redux';
+import NavbarAdmin from "../admin/components/Navbar";
 
 export const AppRouter = () => {
     const authStatus = useSelector((state) => state.auth.status);
@@ -19,7 +20,12 @@ export const AppRouter = () => {
                 path="/*"
                 element={
                     authStatus === 'authenticated' ? (
+                        <>
                         <h1>{`Hello, ${user.email} (${user.role === 'admin' ? 'Admin' : 'User'})`}</h1>
+                        <NavbarAdmin/>
+                        </>
+                        
+
                     ) : (    
                         <Navigate to="/auth/login" />
                     )
