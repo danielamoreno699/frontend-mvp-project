@@ -6,6 +6,10 @@ import { useSelector } from 'react-redux';
 
 export const AppRouter = () => {
     const authStatus = useSelector((state) => state.auth.status);
+    const user = useSelector((state) => state.auth.user);
+
+    console.log('authStatus:', authStatus);
+    console.log('user:', user);
   
     return (
         <Routes>
@@ -15,7 +19,7 @@ export const AppRouter = () => {
                 path="/*"
                 element={
                     authStatus === 'authenticated' ? (
-                        <h1>hello, im user  </h1>
+                        <h1>{`Hello, ${user.name} ${user.last_name} (${user.role === 'admin' ? 'Admin' : 'User'})`}</h1>
                     ) : (    
                         <Navigate to="/auth/login" />
                     )
