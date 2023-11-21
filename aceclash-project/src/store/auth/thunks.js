@@ -66,7 +66,7 @@ import { onChecking, onLogin, onLogout, clearErrorMessage} from "./";
         dispatch(onChecking());
     
         try {
-          const user = response.data['user'];
+          const user = response.data;
           const response = await appApi.get(`/session/${user._id}`);
 
           console.log('user', user)
