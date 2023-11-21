@@ -1,10 +1,10 @@
 import '../styles/register.css'
-import {  useState } from 'react'
+import {  useState} from 'react'
 import { useDispatch } from 'react-redux'
 import { CreateNewUser } from '../../store/auth/thunks'
 import Swal from 'sweetalert2'
 import { useNavigate } from "react-router-dom";
-
+import  InputForm  from './inputForm'
 
 export const RegisterNewUser = () => {
   const navigate = useNavigate();
@@ -22,7 +22,8 @@ export const RegisterNewUser = () => {
       });
 
    const dispatch = useDispatch()
-
+    
+   
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -62,6 +63,9 @@ export const RegisterNewUser = () => {
 
   }
 
+
+  console.log(formData)
+
   return (
     <>
     <div className="center-container">
@@ -71,66 +75,81 @@ export const RegisterNewUser = () => {
         <h1>Register</h1>
         <form onSubmit={onSubmit}>
 
-        <input
-            type="text"
-            id="img"
-            name="img"
+        <InputForm
+             type="text"
+             id="img"
+             name="img"
+             label="img"
+            
             placeholder="img url"
+            
             value={formData.img}
             onChange={handleInputChange}
+            errorMessage='should be a valid url'
             />
           
-            <input
+            <InputForm
             type="text"
             id="name"
             name="name"
+            label="name"
             value={formData.name}
             onChange={handleInputChange}
             required
             placeholder="name"
+            pattern="[a-zA-Z0-9]{3,16}$"
+            errorMessage='should be longer than 3-16 characters and should not contain special characters'
             />
 
        
 
 
-            <input
+            <InputForm
             type="text"
             id="last_name"
             name="last_name"
+            label="last_name"
             value={formData.last_name}
             onChange={handleInputChange}
             required
             placeholder="Last name"
+            errorMessage='should be longer than 3-16 characters and should not contain special characters'
             />
 
-            <input
+            <InputForm
             type="email"
             id="email"
             name="email"
+            label="email"
             value={formData.email}
             onChange={handleInputChange}
             required
             placeholder="Email"
+            errorMessage='should be a valid email'
             />
 
-            <input
+            <InputForm
             type="password"
             id="password"
             name="password"
+            label="password"
             value={formData.password}
             onChange={handleInputChange}
             required
             placeholder="Password"
+            errorMessage='password should be 8-20 characters long and include at least one number'
             />
 
-            <input
+            <InputForm
             type="password"
             id="confirmPassword"
             name="confirmPassword"
+            label="confirmPassword"
             value={formData.confirmPassword}
             onChange={handleInputChange}
             required
             placeholder="Confirm Password"
+            errorMessage='passwords do not match'
             />
           <button 
             type="submit"
