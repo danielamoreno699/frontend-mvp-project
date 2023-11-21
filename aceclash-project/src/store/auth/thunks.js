@@ -42,11 +42,13 @@ import { onChecking, onLogin, onLogout, clearErrorMessage} from "./";
             }
           );
           
+          const user = response.data['user']
           console.log(response.data)
+          console.log('user', response.data['user'])
 
           localStorage.setItem('token', response.data['data']);
           localStorage.setItem('token-start-date', new Date().getTime());
-          dispatch(onLogin({ _id: response.data._id, email: response.data.email, role: response.data.role }));
+          dispatch(onLogin({ _id: user._id, email: user.email, role: user.role }));
           return response.data;
         } catch (error) {
           dispatch(onLogout(error.response.data?.message) || '');
