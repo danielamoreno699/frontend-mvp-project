@@ -9,8 +9,6 @@ export const AppRouter = () => {
     const authStatus = useSelector((state) => state.auth.status);
     const user = useSelector((state) => state.auth.user);
 
-    console.log('authStatus:', authStatus);
-    console.log('user:', user);
   
     return (
         <Routes>
@@ -22,7 +20,7 @@ export const AppRouter = () => {
                     authStatus === 'authenticated' ? (
                         <>
                         <h1>{`Hello, ${user.email} (${user.role === 'admin' ? 'Admin' : 'User'})`}</h1>
-                        <NavbarAdmin/>
+                        {user.role === 'admin' ? <NavbarAdmin /> : 'hello user'}
                         </>
                         
 

@@ -2,7 +2,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { useNavigate } from "react-router-dom";
 import { AiFillFacebook, AiFillGoogleCircle, AiFillPhone,  AiOutlineShopping, AiOutlineTwitter, AiTwotoneMail } from 'react-icons/ai';
-import '../styles/navbar.css'
+import '../styles/Navbar.css'
 
 const NavbarAdmin = () => {
 

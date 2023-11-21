@@ -58,6 +58,29 @@ import { onChecking, onLogin, onLogout, clearErrorMessage} from "./";
         }
       };
     };
+
+    //persistance of user login when he refreshes
+
+    export const persistLogin = () => {
+      return async (dispatch) => {
+        dispatch(onChecking());
+    
+        try {
+          const user = response.data['user'];
+          const response = await appApi.get(`/session/${user._id}`);
+
+          console.log('user', user)
+          console.log('response', response)
+          
+          dispatch(onLogin({ _id: user._id, email: user.email, role: user.role }));
+        } catch (error) {
+          dispatch(onLogout(error.response.data?.message) || '');
+          setTimeout(() => {
+            dispatch(clearErrorMessage());
+          }, 10);
+        }
+      };
+    }
     
 
   
