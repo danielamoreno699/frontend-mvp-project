@@ -1,5 +1,6 @@
 import '../styles/register.css'
 import {  useState} from 'react'
+
 import { useDispatch } from 'react-redux'
 import { CreateNewUser } from '../../store/auth/thunks'
 import Swal from 'sweetalert2'
@@ -9,7 +10,6 @@ import  InputForm  from './inputForm'
 export const RegisterNewUser = () => {
   const navigate = useNavigate();
 
-      
 
 
     const [formData, setFormData] = useState({
@@ -49,7 +49,7 @@ export const RegisterNewUser = () => {
           title: 'User has been registered successfully',
           text: 'Please login to continue',
         })
-  
+      
         navigate('/auth/login');
       }
     } catch (error) {
@@ -59,6 +59,7 @@ export const RegisterNewUser = () => {
         title: 'Oops...',
         text: 'An error occurred while creating the user.',
       });
+
     }
 
   }
@@ -97,8 +98,8 @@ export const RegisterNewUser = () => {
             onChange={handleInputChange}
             required
             placeholder="name"
-            pattern="[a-zA-Z0-9]{3,16}$"
-            errorMessage='should be longer than 3-16 characters and should not contain special characters'
+            pattern="[a-zA-Z]{3,16}$"
+            errorMessage='name should be longer than 3-16 characters and should not contain special characters'
             />
 
        
@@ -113,7 +114,8 @@ export const RegisterNewUser = () => {
             onChange={handleInputChange}
             required
             placeholder="Last name"
-            errorMessage='should be longer than 3-16 characters and should not contain special characters'
+            pattern="[a-zA-Z]{3,16}$"
+            errorMessage='last name should be longer than 3-16 characters and should not contain special characters'
             />
 
             <InputForm
@@ -125,6 +127,7 @@ export const RegisterNewUser = () => {
             onChange={handleInputChange}
             required
             placeholder="Email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$"
             errorMessage='should be a valid email'
             />
 
@@ -137,7 +140,8 @@ export const RegisterNewUser = () => {
             onChange={handleInputChange}
             required
             placeholder="Password"
-            errorMessage='password should be 8-20 characters long and include at least one number'
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{4,20}$"
+            errorMessage='password should be 8-20 characters long and include at least one number, one lowercase letter, one uppercase letter.'
             />
 
             <InputForm
@@ -146,14 +150,14 @@ export const RegisterNewUser = () => {
             name="confirmPassword"
             label="confirmPassword"
             value={formData.confirmPassword}
-            onChange={handleInputChange}
+            onChange= {(e) => setFormData({...formData, confirmPassword: e.target.value})}
             required
             placeholder="Confirm Password"
+            pattern= {formData.password}
             errorMessage='passwords do not match'
             />
           <button 
             type="submit"
-            //disabled={isCheckingAuthentication}
           
           >
                 Sign up
