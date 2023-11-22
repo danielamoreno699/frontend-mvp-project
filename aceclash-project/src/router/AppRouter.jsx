@@ -13,20 +13,26 @@ export const AppRouter = () => {
     const dispatch = useDispatch();
 
     // data persistence of user during session
-    useEffect(() => {
-        const fetchPersistedUser = async () => {
-            try {
-                const storedUser = JSON.parse(localStorage.getItem('user'));
-                if (storedUser) {
-                    await dispatch(persistLogin(storedUser._id));
-                }
-            } catch (error) {
-                console.error("Error fetching  user:", error);
+    const fetchPersistedUser = async () => {
+        try {
+            const storedUser = JSON.parse(localStorage.getItem('user'));
+            if (storedUser) {
+                await dispatch(persistLogin(storedUser._id));
             }
-        };
+        } catch (error) {
+            console.error("Error fetching user:", error);
+        }
+    };
+
     
+    useEffect(() => {
         fetchPersistedUser();
     }, [dispatch]);
+
+  
+    if (authStatus === 'checking') {
+        return <div>Loading...</div>;
+    }
 
   
     return (

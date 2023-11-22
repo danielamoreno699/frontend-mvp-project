@@ -1,16 +1,9 @@
 .container-section{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+
     background-color: #df2a2a;
 }
 
 .wrapper{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    
     background-color: beige;
 }
