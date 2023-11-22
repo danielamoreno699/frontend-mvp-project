@@ -15,10 +15,10 @@ const UsersListComponent = () => {
     dispatch(getAllUsers());
   }, [dispatch]);
 
-  const onHandleUpdateUser = (userId) => {
-    setSelectedUser(userId);
+  const onHandleUpdateUser = (user) => {
+    setSelectedUser(user);
     setShowModal(true);
-    console.log('update user', userId);
+    console.log('update user', user._id);
   };
 
   return (
@@ -50,7 +50,7 @@ const UsersListComponent = () => {
                       <Button
                         variant="primary"
                         className="mr-3"
-                        onClick={() => onHandleUpdateUser(user._id)}
+                        onClick={() => onHandleUpdateUser(user)}
                       >
                         Update User
                       </Button>

@@ -6,18 +6,21 @@ import Modal from 'react-bootstrap/Modal';
 const UserUpdateComponent = ({ show, setShow, user, submitReservation }) => {
   const handleClose = () => setShow(false);
 
+
+
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Update User</Modal.Title>
+        <Modal.Title>Update User ID {user && user._id}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Select a date</Form.Label>
+            <Form.Label>Name</Form.Label>
             <Form.Control
-              type="date"
-              name="date"
+              type="text"
+              name="name"
+              placeholder="update name"
               value=""
               onChange=""
               autoFocus
@@ -25,11 +28,11 @@ const UserUpdateComponent = ({ show, setShow, user, submitReservation }) => {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Indicate your city</Form.Label>
+            <Form.Label>last name</Form.Label>
             <Form.Control
               type="text"
-              name="city"
-              placeholder="City"
+              name="last_name"
+              placeholder="update last name"
               value=""
               onChange=""
               required
@@ -52,6 +55,7 @@ UserUpdateComponent.propTypes = {
   user: PropTypes.shape({
     name: PropTypes.string.isRequired,
     last_name: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
     // Add any other properties you need here
   }).isRequired,
   submitReservation: PropTypes.func.isRequired,
