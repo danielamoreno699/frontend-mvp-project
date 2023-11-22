@@ -17,6 +17,7 @@ const UsersListComponent = () => {
 
 
     const onHandleUpdateUser = (id) => {
+      console.log('User:', users);
         console.log('update user', id);
     }
 
@@ -27,7 +28,7 @@ const UsersListComponent = () => {
         <h1>Users List</h1>
         <div className='users-container'>
           {users.map((user) => (
-            <Card key={user.id} style={{ width: '20rem', margin: '2rem' }}>
+            <Card key={user._id} style={{ width: '20rem', margin: '2rem' }}>
               <Card.Img variant="top" src={user.img} alt='img' />
               <Card.Body>
                 <Card.Title>{user.name}</Card.Title>
@@ -37,7 +38,7 @@ const UsersListComponent = () => {
                   <p>{user.email}</p>
                 </Card.Text>
                 <div className='d-flex justify-content-around'>
-                <Button variant="primary" className="mr-3" onClick={onHandleUpdateUser}>Update User</Button>
+                <Button variant="primary" className="mr-3" onClick={() => onHandleUpdateUser(user._id)}>Update User</Button>
                 <Button variant="primary">See User Details</Button>
               </div>
               </Card.Body>

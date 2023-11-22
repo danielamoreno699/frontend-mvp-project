@@ -10,6 +10,7 @@ export const getAllUsers = () => {
     
         try {
             const response = await appApi.get('/users')
+            console.log('API Response:', response.data);
             dispatch(fulfilled(response.data));
         } catch (error) {
             dispatch(rejected(error.response) || '');          

@@ -14,6 +14,7 @@ export const AdminRoutes = () => {
         <Routes>
         
           <Route path="/" element={<UsersListComponent />} />
+          <Route path= "/edit/:id" element={<UsersListComponent />} />
         </Routes>
       </div>
     </div>

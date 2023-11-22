@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { AuthRoutes } from "../auth/routes/AuthRoutes";
 import { useSelector, useDispatch } from 'react-redux';
-//import NavbarAdmin from "../admin/components/Navbar";
 import { persistLogin } from "../store/auth";
 import { AdminRoutes } from "../admin/routes/AdminRoutes";
 
