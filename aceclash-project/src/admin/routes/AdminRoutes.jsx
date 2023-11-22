@@ -1,13 +1,18 @@
-import {  Routes } from 'react-router-dom'
-import NavbarAdmin from '../components/Navbar'
+
+import { Routes, Route } from 'react-router-dom';
+import NavbarAdmin from '../components/Navbar';
+import UsersListComponent from '../components/UsersListComponent';
+import '../styles/indexAdmin.css';
 
 export const AdminRoutes = () => {
   return (
-    <>
-    <NavbarAdmin/>
-    <Routes>
-   
-    </Routes>
-    </>
-  )
-}
+    <div className="admin-container">
+      <NavbarAdmin />
+      <div className="admin-content">
+        <Routes>
+          <Route path="/" element={<UsersListComponent />} />
+        </Routes>
+      </div>
+    </div>
+  );
+};

@@ -3,8 +3,9 @@ import { useEffect } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { AuthRoutes } from "../auth/routes/AuthRoutes";
 import { useSelector, useDispatch } from 'react-redux';
-import NavbarAdmin from "../admin/components/Navbar";
+//import NavbarAdmin from "../admin/components/Navbar";
 import { persistLogin } from "../store/auth";
+import { AdminRoutes } from "../admin/routes/AdminRoutes";
 
 export const AppRouter = () => {
     const authStatus = useSelector((state) => state.auth.status);
@@ -20,7 +21,7 @@ export const AppRouter = () => {
                     await dispatch(persistLogin(storedUser._id));
                 }
             } catch (error) {
-                console.error("Error fetching persisted user:", error);
+                console.error("Error fetching  user:", error);
             }
         };
     
@@ -38,7 +39,7 @@ export const AppRouter = () => {
                     authStatus === 'authenticated' ? (
                         <>
                    
-                        {user.role === 'admin' ? <NavbarAdmin /> : 'hello user'}
+                        {user.role === 'admin' ? <AdminRoutes /> : 'hello user'}
                         </>
                         
 
