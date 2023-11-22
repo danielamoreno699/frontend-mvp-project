@@ -18,6 +18,8 @@ export const AppRouter = () => {
             const storedUser = JSON.parse(localStorage.getItem('user'));
             if (storedUser) {
                 await dispatch(persistLogin(storedUser._id));
+            }else{
+                await dispatch(persistLogin(null));
             }
         } catch (error) {
             console.error("Error fetching user:", error);
@@ -27,11 +29,12 @@ export const AppRouter = () => {
     
     useEffect(() => {
         fetchPersistedUser();
-    }, [dispatch]);
+    }, []);
 
   
     if (authStatus === 'checking') {
         return <div>Loading...</div>;
+       
     }
 
   

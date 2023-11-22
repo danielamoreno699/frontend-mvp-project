@@ -90,7 +90,27 @@ export const persistLogin = (userId) => {
   };
 };
 
+// logout
 
+export const logout = () => {
+
+  return async (dispatch) => {
+    dispatch(onChecking());
+
+    try {
+    
+      localStorage.removeItem('token');
+      localStorage.removeItem('token-start-date');
+      localStorage.removeItem('user');
+      dispatch(onLogout());
+    } catch (error) {
+      dispatch(onLogout(error.response) || '');
+      setTimeout(() => {
+        dispatch(clearErrorMessage());
+      }, 10);
+    }
+  };
+}
 
   
 
