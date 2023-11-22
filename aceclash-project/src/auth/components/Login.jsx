@@ -38,6 +38,12 @@ export const Login = () => {
         });
 
         navigate('/');
+      }else{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Incorrect email or password.',
+        });
       }
     } catch (error) {
       console.error('Error while logging in', error);
