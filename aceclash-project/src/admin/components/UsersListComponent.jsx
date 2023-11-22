@@ -28,27 +28,34 @@ const UsersListComponent = () => {
   };
 
   const submitUpdate = async (data) => {
+    const updatedData = {};
+  
+    Object.entries(data).forEach(([key, value]) => {
+      if (value !== '') {
+        updatedData[key] = value;
+      }
+    });
+  
     try {
-      await dispatch(updateUser(selectedUser._id, data));
-
-    
-      Swal.fire({
-        icon: 'success',
-        title: 'User updated successfully!',
-        showConfirmButton: false,
-        timer: 1500,
-      });
-
-   
-      setShowModal(false);
-      dispatch(getAllUsers());
-      window.location.reload();
-
+      if (Object.keys(updatedData).length > 0) {
+        await dispatch(updateUser(selectedUser._id, updatedData));
+  
+        Swal.fire({
+          icon: 'success',
+          title: 'User updated successfully!',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+  
+        setShowModal(false);
+        dispatch(getAllUsers());
+        window.location.reload();
+      } else {
+        setShowModal(false);
+      }
     } catch (error) {
-
       console.error('Error updating user:', error);
-
-      
+  
       Swal.fire({
         icon: 'error',
         title: 'Error updating user',
@@ -56,6 +63,7 @@ const UsersListComponent = () => {
       });
     }
   };
+  
 
   return (
     <>
