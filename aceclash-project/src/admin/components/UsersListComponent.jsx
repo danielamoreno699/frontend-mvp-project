@@ -4,21 +4,27 @@ import Card from 'react-bootstrap/Card';
 import { getAllUsers } from '../../store/user';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { useState } from 'react';
+import UserUpdateComponent from './UserUpdateComponent';
 
 
 const UsersListComponent = () => {
   const dispatch = useDispatch();
   const { users} = useSelector((state) => state.users);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
 
 
   useEffect(() => {
     dispatch(getAllUsers());
-  }, []);
+  }, [dispatch]);
 
 
-    const onHandleUpdateUser = (id) => {
-      console.log('User:', users);
-        console.log('update user', id);
+    const onHandleUpdateUser = (UserId) => {
+
+        setSelectedUser(UserId)
+        setShowModal(true);
+        console.log('update user', UserId);
     }
 
 
@@ -46,6 +52,13 @@ const UsersListComponent = () => {
           ))}
         </div>
       </section>
+
+      <UserUpdateComponent
+        show={showModal}
+        setShow={setShowModal}
+        user={selectedUser}
+      
+      />
     </>
   );
 
