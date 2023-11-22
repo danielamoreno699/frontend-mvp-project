@@ -16,6 +16,8 @@ const UsersListComponent = () => {
   }, []);
 
 
+    
+
 
   return (
     <>
@@ -23,8 +25,8 @@ const UsersListComponent = () => {
         <h1>Users List</h1>
         <div className='users-container'>
           {users.map((user) => (
-            <Card key={user.id} style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="holder.js/100px180" />
+            <Card key={user.id} style={{ width: '20rem', margin: '2rem' }}>
+              <Card.Img variant="top" src={user.img} alt='img' />
               <Card.Body>
                 <Card.Title>{user.name}</Card.Title>
                 <Card.Text>
@@ -32,8 +34,10 @@ const UsersListComponent = () => {
                   <p>{user.role}</p>
                   <p>{user.email}</p>
                 </Card.Text>
-                <Button variant="primary" >Update User</Button>
-                <Button variant="primary" >See User Details</Button>
+                <div className='d-flex justify-content-around'>
+                <Button variant="primary" className="mr-3">Update User</Button>
+                <Button variant="primary">See User Details</Button>
+              </div>
               </Card.Body>
             </Card>
           ))}
