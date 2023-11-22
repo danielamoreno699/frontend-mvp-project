@@ -1,16 +1,18 @@
 
 import appApi from "../../api/authApi"
-import {  pending, fullfilled, rejected} from "./"
+import {  pending, fulfilled, rejected} from "./"
 
+
+// function that displays all users 
 export const getAllUsers = () => {
     return async (dispatch) => {
         dispatch(pending());
     
         try {
-            await appApi.get('/users')
-            dispatch(fullfilled());
+            const response = await appApi.get('/users')
+            dispatch(fulfilled(response.data));
         } catch (error) {
-            dispatch(rejected(error.response.data?.message) || '');          
+            dispatch(rejected(error.response) || '');          
         }
         
       };

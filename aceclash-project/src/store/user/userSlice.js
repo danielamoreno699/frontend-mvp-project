@@ -12,7 +12,7 @@ export const usersSlice = createSlice({
             state.users = [];
             state.errorMessage = undefined
         },
-        fullfilled : (state, {payload}) =>{
+        fulfilled : (state, {payload}) =>{
             state.status = 'succceded'
             state.users = payload
             state.errorMessage = undefined
@@ -27,4 +27,4 @@ export const usersSlice = createSlice({
        
     },
 });
-export const { pending, fullfilled, rejected } = usersSlice.actions;
+export const { pending, fulfilled, rejected } = usersSlice.actions;
