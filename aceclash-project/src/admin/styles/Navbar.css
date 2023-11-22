@@ -49,10 +49,7 @@
    */
 
 
-   .nav-container{
-    /* background-color: beige;
-    height: 90vh; */
-   }
+ 
 
    .grey-border {
     border-bottom: 1px solid #e1e1e1;
@@ -76,8 +73,10 @@
 
   .sidebar{
     background-color: rgb(2, 10, 2);
-    height: 90vh;
+    height: 100vh;
     color: var(--bs-light);
+  
+    
   }
   
 

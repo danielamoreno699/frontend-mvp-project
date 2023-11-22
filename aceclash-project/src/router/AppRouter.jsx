@@ -37,7 +37,7 @@ export const AppRouter = () => {
                 element={
                     authStatus === 'authenticated' ? (
                         <>
-                        <h1>{`Hello, ${user.email} (${user.role === 'admin' ? 'Admin' : 'User'})`}</h1>
+                   
                         {user.role === 'admin' ? <NavbarAdmin /> : 'hello user'}
                         </>
                         

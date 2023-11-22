@@ -1,4 +1,5 @@
 import Navbar from 'react-bootstrap/Navbar';
+import { useSelector} from 'react-redux';
 import Nav from 'react-bootstrap/Nav';
 import { useNavigate } from "react-router-dom";
 import { AiFillFacebook, AiFillGoogleCircle, AiFillPhone,  AiOutlineTwitter, AiTwotoneMail } from 'react-icons/ai';
@@ -6,7 +7,7 @@ import '../styles/Navbar.css'
 
 const NavbarAdmin = () => {
 
-
+    const user = useSelector((state) => state.auth.user);
 
     const navigate = useNavigate();
     const onLogout = () => {
@@ -17,46 +18,57 @@ const NavbarAdmin = () => {
 
   return (
     <header className="nav-container">
-        <Navbar className="p-1 d-flex">
+
+        <Navbar className=" d-flex p-0">
             <nav className="sidebar">
+
+                <div className='sidebar-header'>
+                <h3 className="text-center mt-3">Aceclash</h3>
+                <p className='flex-column m-3 d-flex'>{`Hello, ${user.email} (${user.role === 'admin' ? 'Admin' : 'User'})`}</p>
+                </div>
+
                 <ul className="nav flex-column m-3 d-flex">
+
                     <li>
                         <a className="nav-link" href="#" onClick={onLogout}>Logout</a>
                     </li>
                     <li>
-                        <a className="nav-link" href="#">Link name</a>
+                        <a className="nav-link" href="#">display users</a>
                     </li>
                     <li>
-                        <a className="nav-link" href="#">Link name</a>
+                        <a className="nav-link" href="#">update user</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">About page</a>
+                        <a className="nav-link" href="#">create Tournament</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Category name</a>
+                        <a className="nav-link" href="#">display Tournaments</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Another page</a>
+                        <a className="nav-link" href="#">update Tournament</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="#">delete Tournament</a>
                     </li>
                 </ul>
-            <footer>
+            <footer className='ml-auto p-2 align-content-lg-end'>
           {/* Contacts */}
-                <div className="contacts flex-fill fit-content p-1">
+                <div className="contacts flex-fill fit-content p-1 ml-auto p-2">
                         <Nav className="m-1 fit-content flex-column m-3 d-flex">
-                            <Nav.Item as="li" className="fit-content">
-                                 <Nav.Link href="#" disabled className="fit-content">
+                            <li className="fit-content">
+                                 <a href="#" disabled className="fit-content">
                                     {<AiFillPhone className='icon-react'/>}
                                      0.703.1352.411
-                                </Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item as="li" className="fit-content">
-                                <Nav.Link className="fit-content asdw" href="#" disabled>
+                                </a>
+                            </li>
+                            <li  className="fit-content">
+                                <a className="fit-content asdw" href="#" disabled>
   
 
                                  {<AiTwotoneMail className='navbar-icon' />}
                                      aceclash@email.com
-                                </Nav.Link>
-                            </Nav.Item>
+                                </a>
+                            </li>
                         </Nav>
                 </div>
 
