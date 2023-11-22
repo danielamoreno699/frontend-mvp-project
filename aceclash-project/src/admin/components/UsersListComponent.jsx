@@ -10,13 +10,15 @@ const UsersListComponent = () => {
   const dispatch = useDispatch();
   const { users} = useSelector((state) => state.users);
 
-  // Fetch users when the component mounts
+
   useEffect(() => {
     dispatch(getAllUsers());
   }, []);
 
 
-    
+    const onHandleUpdateUser = (id) => {
+        console.log('update user', id);
+    }
 
 
   return (
@@ -35,7 +37,7 @@ const UsersListComponent = () => {
                   <p>{user.email}</p>
                 </Card.Text>
                 <div className='d-flex justify-content-around'>
-                <Button variant="primary" className="mr-3">Update User</Button>
+                <Button variant="primary" className="mr-3" onClick={onHandleUpdateUser}>Update User</Button>
                 <Button variant="primary">See User Details</Button>
               </div>
               </Card.Body>
