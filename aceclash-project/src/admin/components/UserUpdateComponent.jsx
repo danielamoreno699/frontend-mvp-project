@@ -45,7 +45,7 @@ const UserUpdateComponent = ({ show, setShow, user, submitUpdate }) => {
               value={data.name}
               onChange={onHandleChange}
               autoFocus
-              required
+            
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
@@ -56,7 +56,7 @@ const UserUpdateComponent = ({ show, setShow, user, submitUpdate }) => {
               placeholder="update last name"
               value={data.last_name}
               onChange={onHandleChange}
-              required
+              
             />
           </Form.Group>
 

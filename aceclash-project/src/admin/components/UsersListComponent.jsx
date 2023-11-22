@@ -5,10 +5,13 @@ import { getAllUsers } from '../../store/user';
 import { useDispatch, useSelector } from 'react-redux';
 import UserUpdateComponent from './UserUpdateComponent';
 import { updateUser } from '../../store/user';
+
 import Swal from 'sweetalert2';
 
 
+
 const UsersListComponent = () => {
+  
   const dispatch = useDispatch();
   const { users } = useSelector((state) => state.users);
   const [showModal, setShowModal] = useState(false);
@@ -21,7 +24,7 @@ const UsersListComponent = () => {
   const onHandleUpdateUser = (user) => {
     setSelectedUser(user);
     setShowModal(true);
-    console.log('update user', user._id);
+    
   };
 
   const submitUpdate = async (data) => {
@@ -38,6 +41,9 @@ const UsersListComponent = () => {
 
    
       setShowModal(false);
+      dispatch(getAllUsers());
+      window.location.reload();
+
     } catch (error) {
 
       console.error('Error updating user:', error);
