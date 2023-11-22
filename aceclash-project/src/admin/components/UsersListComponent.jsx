@@ -98,7 +98,7 @@ const UsersListComponent = () => {
                       >
                         Update User
                       </Button>
-                      <Button variant="primary">See User Details</Button>
+                     
                     </div>
                   </td>
                 </tr>

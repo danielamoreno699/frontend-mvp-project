@@ -33,11 +33,9 @@ const NavbarAdmin = () => {
                         <a className="nav-link" href="#" onClick={onLogout}>Logout</a>
                     </li>
                     <li>
-                        <a className="nav-link" href="#">display users</a>
+                        <a className="nav-link" href="/">display users</a>
                     </li>
-                    <li>
-                        <a className="nav-link" href="#">update user</a>
-                    </li>
+              
                     <li className="nav-item">
                         <a className="nav-link" href="#">create Tournament</a>
                     </li>
