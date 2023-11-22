@@ -4,6 +4,9 @@ import Table from 'react-bootstrap/Table';
 import { getAllUsers } from '../../store/user';
 import { useDispatch, useSelector } from 'react-redux';
 import UserUpdateComponent from './UserUpdateComponent';
+import { updateUser } from '../../store/user';
+import Swal from 'sweetalert2';
+
 
 const UsersListComponent = () => {
   const dispatch = useDispatch();
@@ -19,6 +22,33 @@ const UsersListComponent = () => {
     setSelectedUser(user);
     setShowModal(true);
     console.log('update user', user._id);
+  };
+
+  const submitUpdate = async (data) => {
+    try {
+      await dispatch(updateUser(selectedUser._id, data));
+
+    
+      Swal.fire({
+        icon: 'success',
+        title: 'User updated successfully!',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
+   
+      setShowModal(false);
+    } catch (error) {
+
+      console.error('Error updating user:', error);
+
+      
+      Swal.fire({
+        icon: 'error',
+        title: 'Error updating user',
+        text: 'An error occurred while updating the user. Please try again.',
+      });
+    }
   };
 
   return (
@@ -64,7 +94,7 @@ const UsersListComponent = () => {
         </div>
       </section>
 
-      <UserUpdateComponent show={showModal} setShow={setShowModal} user={selectedUser} />
+      <UserUpdateComponent show={showModal} setShow={setShowModal} user={selectedUser} submitUpdate={submitUpdate}  />
     </>
   );
 };

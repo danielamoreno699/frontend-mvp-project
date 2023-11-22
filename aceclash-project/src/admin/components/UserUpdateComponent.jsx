@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
+
 const UserUpdateComponent = ({ show, setShow, user, submitUpdate }) => {
   const handleClose = () => setShow(false);
 
