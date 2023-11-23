@@ -39,10 +39,10 @@ const NavbarAdmin = () => {
                     </li>
               
                     <li className="nav-item">
-                        <a className="nav-link" href="#">create Tournament</a>
+                        <a className="nav-link" href="">create Tournament</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">display Tournaments</a>
+                        <a className="nav-link" href="/tournaments">display Tournaments</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="#">update Tournament</a>
