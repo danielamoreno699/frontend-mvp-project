@@ -2,7 +2,7 @@
 
 import { Routes, Route } from 'react-router-dom';
 import NavbarAdmin from '../components/Navbar';
-import UsersListComponent from '../components/UsersListComponent';
+import UsersListComponent from '../userComponents/UsersListComponent';
 import '../styles/indexAdmin.css';
 
 // Define the AdminRoutes component
