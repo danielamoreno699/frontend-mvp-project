@@ -2,10 +2,12 @@ import { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTournaments } from '../../../store/tournaments';
+import { getTournaments, getTournamentById } from '../../../store/tournaments';
+import { useNavigate } from 'react-router-dom';
 
 const TournamentsListComponent = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { tournaments } = useSelector((state) => state.tournaments);
 
   useEffect(() => {
@@ -16,8 +18,11 @@ const TournamentsListComponent = () => {
     console.log(tournament);
   }
 
-  const onHandleSeeDetails = (tournament) => {
-    console.log(tournament);
+  const onHandleSeeDetails = (tournamentId) => {
+    console.log(tournamentId);
+    dispatch(getTournamentById(tournamentId));
+    navigate(`/tournaments/${tournamentId}`);
+    
   }
 
   const onHandleDelete = (tournament) => {
@@ -65,7 +70,7 @@ const TournamentsListComponent = () => {
                         variant="success"
                         className="mr-3"
                         size="sm"
-                        onClick={() => onHandleSeeDetails(tournament)}
+                        onClick={() => onHandleSeeDetails(tournament._id)}
                       >
                         See more info
                       </Button>
