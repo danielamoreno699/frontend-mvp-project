@@ -34,9 +34,7 @@ const TournamentsListComponent = () => {
               <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Description</th>
-                <th>Location</th>
-                <th>City</th>
+               
                 <th>Country</th>
                 <th>Capacity Available</th>
                 <th>Actions</th>
@@ -50,9 +48,7 @@ const TournamentsListComponent = () => {
                 <tr key={tournament._id}>
                   <td>{tournament._id}</td>
                   <td>{tournament.name}</td>
-                  <td>{tournament.desc}</td>
-                  <td>{tournament.location}</td>
-                  <td>{tournament.city}</td>
+                
                   <td>{tournament.country}</td>
                   <td>{tournament.capacity_available}</td>
                   <td>
