@@ -14,9 +14,7 @@ const TournamentsListComponent = () => {
     dispatch(getTournaments());
   }, [dispatch]);
 
-  const onHandleUpdateTournament = (tournament) => {
-    console.log(tournament);
-  }
+ 
 
   const onHandleSeeDetails = (tournamentId) => {
     console.log(tournamentId);
@@ -58,14 +56,7 @@ const TournamentsListComponent = () => {
                   <td>{tournament.capacity_available}</td>
                   <td>
                     <div className="d-flex justify-content-around">
-                      <Button
-                        variant="primary"
-                        size="sm"
-                        className="mr-3"
-                        onClick={() => onHandleUpdateTournament(tournament)}
-                      >
-                        Update Tournament
-                      </Button>
+                     
                       <Button
                         variant="success"
                         className="mr-3"
