@@ -44,12 +44,6 @@ const NavbarAdmin = () => {
                     <li className="nav-item">
                         <a className="nav-link" href="/tournaments">display Tournaments</a>
                     </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">update Tournament</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">delete Tournament</a>
-                    </li>
                 </ul>
             <footer className='ml-auto p-2 align-content-lg-end'>
           {/* Contacts */}

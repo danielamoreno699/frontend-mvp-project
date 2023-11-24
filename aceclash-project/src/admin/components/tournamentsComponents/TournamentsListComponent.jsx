@@ -59,6 +59,7 @@ const TournamentsListComponent = () => {
                     <div className="d-flex justify-content-around">
                       <Button
                         variant="primary"
+                        size="sm"
                         className="mr-3"
                         onClick={() => onHandleUpdateTournament(tournament)}
                       >
@@ -67,12 +68,14 @@ const TournamentsListComponent = () => {
                       <Button
                         variant="success"
                         className="mr-3"
+                        size="sm"
                         onClick={() => onHandleSeeDetails(tournament)}
                       >
                         See more info
                       </Button>
                       <Button
                         variant="danger"
+                        size="sm"
                         className="mr-3"
                         onClick={() => onHandleDelete(tournament)}
                       >
