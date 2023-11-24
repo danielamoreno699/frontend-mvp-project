@@ -61,9 +61,13 @@ const TournamentId = () => {
           </tr>
         </tbody>
       </Table>
-      <Button variant="primary" onClick={handleGoBack}>
-        Go Back
-      </Button>
+      <div className="d-flex justify-content-end">
+        <Button variant="primary" onClick={handleGoBack}>
+          Go Back
+        </Button>
+ 
+        <Button variant="secondary"  className="ml-2">update Tournament</Button>
+      </div>
     </div>
   );
 };
