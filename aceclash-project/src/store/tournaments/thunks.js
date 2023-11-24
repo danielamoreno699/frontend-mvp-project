@@ -65,3 +65,21 @@ export const deleteTournament = (id) => {
         
       };
 }
+
+
+// create tournament
+export const createTournament = (data) => {
+    return async (dispatch) => {
+        dispatch(pending());
+    
+        try {
+            const response = await appApi.post(`/tournaments`, data)
+           
+            
+            return response.data;
+        } catch (error) {
+            dispatch(rejected(error.response) || '');          
+        }
+        
+      };
+}
