@@ -5,6 +5,7 @@ import { getAllUsers } from '../../store/user';
 import { useDispatch, useSelector } from 'react-redux';
 import UserUpdateComponent from './UserUpdateComponent';
 import { updateUser } from '../../store/user';
+import { checkingEmptyFields } from '../../helpers/EmpValues';
 
 import Swal from 'sweetalert2';
 
@@ -28,17 +29,12 @@ const UsersListComponent = () => {
   };
 
   const submitUpdate = async (data) => {
-    const updatedData = {};
-  
-    Object.entries(data).forEach(([key, value]) => {
-      if (value !== '') {
-        updatedData[key] = value;
-      }
-    });
+   
+    const nonEmptyData = checkingEmptyFields(data);
   
     try {
-      if (Object.keys(updatedData).length > 0) {
-        await dispatch(updateUser(selectedUser._id, updatedData));
+      if (nonEmptyData) {
+        await dispatch(updateUser(selectedUser._id, nonEmptyData));
   
         Swal.fire({
           icon: 'success',
