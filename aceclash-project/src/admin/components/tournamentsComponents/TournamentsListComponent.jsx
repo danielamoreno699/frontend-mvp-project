@@ -2,8 +2,9 @@ import { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTournaments, getTournamentById } from '../../../store/tournaments';
+import { getTournaments, getTournamentById, deleteTournament} from '../../../store/tournaments';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const TournamentsListComponent = () => {
   const dispatch = useDispatch();
@@ -23,8 +24,30 @@ const TournamentsListComponent = () => {
     
   }
 
-  const onHandleDelete = (tournament) => {
-    console.log(tournament);
+  const onHandleDelete = (tournamentId) => {
+    console.log(tournamentId);
+    Swal.fire({
+      title: 'Delete Item',
+      text: 'Are you sure you want to delete this item?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+      
+        dispatch(deleteTournament(tournamentId))
+          .then(() => {
+            dispatch(deleteTournament(tournamentId));
+            Swal.fire('Deleted!', 'The item has been deleted.', 'success'); // Show success alert
+          })
+          .catch((error) => {
+            console.error('Error deleting item:', error);
+            Swal.fire('Error', 'An error occurred while deleting the item.', 'error'); // Show error alert
+          });
+      }
+    });
   }
 
   return (
@@ -69,7 +92,7 @@ const TournamentsListComponent = () => {
                         variant="danger"
                         size="sm"
                         className="mr-3"
-                        onClick={() => onHandleDelete(tournament)}
+                        onClick={() => onHandleDelete(tournament._id)}
                       >
                         Delete tournament
                       </Button>

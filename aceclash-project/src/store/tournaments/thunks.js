@@ -50,3 +50,18 @@ export const updateTournament = (id, data) => {
         
       };
 }
+
+// delete tournament
+export const deleteTournament = (id) => {
+    return async (dispatch) => {
+        dispatch(pending());
+    
+        try {
+            const response = await appApi.delete(`/tournaments/${id}`)    
+            return response.data;
+        } catch (error) {
+            dispatch(rejected(error.response) || '');          
+        }
+        
+      };
+}
