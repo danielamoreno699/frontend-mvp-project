@@ -51,16 +51,16 @@ const UsersListComponent = () => {
         dispatch(getAllUsers());
         window.location.reload();
       } else {
-        setShowModal(false);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error updating user',
+          text: 'An error occurred while updating the user. Please try again.',
+        });
       }
     } catch (error) {
-      console.error('Error updating user:', error);
+      throw new Error('Oops! Something went wrong.');
   
-      Swal.fire({
-        icon: 'error',
-        title: 'Error updating user',
-        text: 'An error occurred while updating the user. Please try again.',
-      });
+     
     }
   };
   

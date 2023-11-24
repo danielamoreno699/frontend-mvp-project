@@ -42,7 +42,8 @@ export const updateTournament = (id, data) => {
         try {
             const response = await appApi.put(`/tournaments/${id}`, data)
             console.log('API Response:', response.data);
-            dispatch(fulfilled(response.data));
+            
+            return response.data;
         } catch (error) {
             dispatch(rejected(error.response) || '');          
         }
