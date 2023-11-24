@@ -9,7 +9,7 @@ export const getTournaments = () => {
     
         try {
             const response = await appApi.get('/tournaments')
-          
+            console.log('API Response:', response.data);
             dispatch(fulfilled(response.data));
         } catch (error) {
             dispatch(rejected(error.response) || '');          
