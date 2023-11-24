@@ -25,7 +25,7 @@ export const updateUser = (id, data) => {
     
         try {
             const response = await appApi.put(`/users/${id}`, data)
-            console.log('API Response:', response.data);
+       
             dispatch(fulfilled(response.data));
         } catch (error) {
             dispatch(rejected(error.response) || '');          

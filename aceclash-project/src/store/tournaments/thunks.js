@@ -25,8 +25,24 @@ export const getTournamentById = (id) => {
     
         try {
             const response = await appApi.get(`/tournaments/${id}`)
-            console.log('API Response:', response.data);
+          
             dispatch(fulfilledTournament(response.data));
+        } catch (error) {
+            dispatch(rejected(error.response) || '');          
+        }
+        
+      };
+}
+
+// update tournament
+export const updateTournament = (id, data) => {
+    return async (dispatch) => {
+        dispatch(pending());
+    
+        try {
+            const response = await appApi.put(`/tournaments/${id}`, data)
+            console.log('API Response:', response.data);
+            dispatch(fulfilled(response.data));
         } catch (error) {
             dispatch(rejected(error.response) || '');          
         }

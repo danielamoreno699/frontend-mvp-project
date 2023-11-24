@@ -6,6 +6,7 @@ import UsersListComponent from '../userComponents/UsersListComponent';
 import '../styles/indexAdmin.css';
 import TournamentsListComponent from '../components/tournamentsComponents/TournamentsListComponent';
 import TournamentId from '../components/tournamentsComponents/TournamentId';
+import TournamentUpdate from '../components/tournamentsComponents/TournamentUpdate';
 
 // Define the AdminRoutes component
 export const AdminRoutes = () => {
@@ -18,6 +19,7 @@ export const AdminRoutes = () => {
           <Route path="/" element={<UsersListComponent />} />
           <Route path= "/tournaments" element={<TournamentsListComponent/>} />
           <Route path= "/tournaments/:id" element={<TournamentId/>} />
+          <Route path= "/editTournament/:id" element={<TournamentUpdate/>} />
         </Routes>
       </div>
     </div>

@@ -20,6 +20,10 @@ const TournamentId = () => {
     navigate(-1);
   };
 
+  const onHandleUpdateTournament = (id) => {
+    navigate(`/editTournament/${id}`);
+  };
+
   return (
     <div>
       <h1>Tournament Details</h1>
@@ -66,7 +70,10 @@ const TournamentId = () => {
           Go Back
         </Button>
  
-        <Button variant="secondary"  className="ml-2">update Tournament</Button>
+        <Button variant="secondary"  className="ml-2"
+         onClick={() => onHandleUpdateTournament(tournamentDetails._id)}>
+            update Tournament
+            </Button>
       </div>
     </div>
   );
