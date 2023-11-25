@@ -8,6 +8,7 @@ import TournamentsListComponent from '../components/tournamentsComponents/Tourna
 import TournamentId from '../components/tournamentsComponents/TournamentId';
 import TournamentUpdate from '../components/tournamentsComponents/TournamentUpdate';
 import TournamentCreate from '../components/tournamentsComponents/TournamentCreate';
+import EnrollmentsListAdmin from '../components/enrollmentsComponents/EnrollmentsListAdmin';
 
 // Define the AdminRoutes component
 export const AdminRoutes = () => {
@@ -22,6 +23,7 @@ export const AdminRoutes = () => {
           <Route path= "/tournaments/:id" element={<TournamentId/>} />
           <Route path= "/editTournament/:id" element={<TournamentUpdate/>} />
           <Route path= "/createTournament" element={<TournamentCreate/>} />
+          <Route path= "/enrollments-users" element={<EnrollmentsListAdmin/>} />
         </Routes>
       </div>
     </div>
