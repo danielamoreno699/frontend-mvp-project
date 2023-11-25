@@ -4,17 +4,29 @@ import { useEffect} from 'react';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 import { useDispatch, useSelector } from 'react-redux';
+import { getEnrollmentById } from "../../../store/enrollments";
+import { useNavigate } from "react-router-dom";
 
  const EnrollmentsListAdmin = () => {
 
   
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { enrollments } = useSelector((state) => state.enrollments);
 
 
   useEffect(() => {
     dispatch(getAllEnrollmentsUsers());
   }, [dispatch]);
+
+
+  
+  const onHandleSeeDetails = (enrollmentId) => {
+    console.log(enrollmentId);
+    dispatch(getEnrollmentById(enrollmentId));
+    navigate(`/enrollments-users/{enrollmentId}`);
+    
+  }
 
   return (
     <>
@@ -54,7 +66,7 @@ import { useDispatch, useSelector } from 'react-redux';
                       <Button
                         variant="primary"
                         className="mr-3"
-                        
+                        onClick={() => onHandleSeeDetails(enrollment._id)}
                       >
                         see details 
                       </Button>

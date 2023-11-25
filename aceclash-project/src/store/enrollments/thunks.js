@@ -10,7 +10,7 @@ export const getAllEnrollmentsUsers = () => {
             const response = await appApi.get('/enrollments/users')
             
             dispatch(fulfilled(response.data));
-            console.log('api enrollments', response.data)
+            
             return response.data;
         } catch (error) {
             dispatch(rejected(error.response) || '');          
@@ -29,6 +29,8 @@ export const getEnrollmentById = (id) => {
             const response = await appApi.get(`/enrollments/${id}`)
           
             dispatch(fulfilledEnrollment(response.data));
+            console.log('api single enrollment', response.data)
+            return response.data;
         } catch (error) {
             dispatch(rejected(error.response) || '');          
         }
