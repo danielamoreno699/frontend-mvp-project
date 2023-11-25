@@ -39,12 +39,12 @@ const TournamentsListComponent = () => {
       
         dispatch(deleteTournament(tournamentId))
           .then(() => {
-            dispatch(deleteTournament(tournamentId));
-            Swal.fire('Deleted!', 'The item has been deleted.', 'success'); // Show success alert
+            dispatch(getTournaments());
+            Swal.fire('Deleted!', 'The item has been deleted.', 'success'); 
           })
           .catch((error) => {
             console.error('Error deleting item:', error);
-            Swal.fire('Error', 'An error occurred while deleting the item.', 'error'); // Show error alert
+            Swal.fire('Error', 'An error occurred while deleting the item.', 'error'); 
           });
       }
     });
