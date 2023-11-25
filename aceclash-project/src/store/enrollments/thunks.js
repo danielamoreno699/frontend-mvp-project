@@ -1,5 +1,5 @@
 import appApi from "../../api/authApi"
-import {  pending, fulfilled, rejected} from "./"
+import {  pending, fulfilled, rejected, fulfilledEnrollment} from "./"
 
 //get All enrollments for Admin
 export const getAllEnrollmentsUsers = () => {
@@ -19,3 +19,19 @@ export const getAllEnrollmentsUsers = () => {
       };
 }
 
+
+//get enrollment by id
+export const getEnrollmentById = (id) => {
+    return async (dispatch) => {
+        dispatch(pending());
+    
+        try {
+            const response = await appApi.get(`/enrollments/${id}`)
+          
+            dispatch(fulfilledEnrollment(response.data));
+        } catch (error) {
+            dispatch(rejected(error.response) || '');          
+        }
+        
+      };
+}
