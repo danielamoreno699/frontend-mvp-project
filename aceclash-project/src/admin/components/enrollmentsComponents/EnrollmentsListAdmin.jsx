@@ -18,7 +18,7 @@ import { useDispatch, useSelector } from 'react-redux';
   return (
     <>
      <section className="container-section">
-        <h1>Users List</h1>
+        <h1>Enrollments List</h1>
         <div className="users-container">
           <Table striped bordered hover>
             <thead>
