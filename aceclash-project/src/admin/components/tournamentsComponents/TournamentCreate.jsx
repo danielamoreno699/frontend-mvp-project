@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {useNavigate } from 'react-router-dom';
 import { createTournament } from '../../../store/tournaments';
+import InputForm from '../../../auth/components/inputForm';
 
 
 
@@ -55,13 +56,14 @@ const TournamentCreate = () => {
       <form className="w60" onSubmit={onHandleSubmit}>
       <div className="mb-3">
           <label htmlFor="imgTournament" className="form-label">img url for Tournament</label>
-          <input 
+          <InputForm 
           type="text" 
           className="form-control" 
           id="imgTournament" 
           name="img"
           value={data.img}
           onChange={onHandleChange}
+         
          
         
           
@@ -71,7 +73,7 @@ const TournamentCreate = () => {
 
         <div className="mb-3">
           <label htmlFor="nameTournament" className="form-label">name for Tournament</label>
-          <input 
+          <InputForm
           type="text" 
           className="form-control" 
           id="name" 
@@ -79,6 +81,7 @@ const TournamentCreate = () => {
           value={data.name}
           onChange={onHandleChange}
           required
+          errorMessage='enter a name'
          
           
           />
@@ -87,7 +90,7 @@ const TournamentCreate = () => {
 
         <div className="mb-3">
           <label htmlFor="descTournament" className="form-label">description for Tournament</label>
-          <input 
+          <InputForm 
           
           type="text" 
           className="form-control" 
@@ -96,20 +99,22 @@ const TournamentCreate = () => {
          value={data.desc}
          onChange={onHandleChange}
          required
+         errorMessage='enter a description'
            />
          
         </div>
 
         <div className="mb-3">
           <label htmlFor="locationTournament" className="form-label">location for Tournament</label>
-          <input 
+          <InputForm 
           type="text" 
           className="form-control" 
           id="locationTournament"
           name="location"
           value={data.location}
           onChange={onHandleChange}
-         required
+          errorMessage='enter a location'
+          required
 
            />
          
@@ -117,7 +122,7 @@ const TournamentCreate = () => {
 
         <div className="mb-3">
           <label htmlFor="cityTournament" className="form-label">city</label>
-          <input 
+          <InputForm 
           type="text" 
           className="form-control" 
           id="cityTournament" 
@@ -125,25 +130,28 @@ const TournamentCreate = () => {
           value={data.city}
           onChange={onHandleChange}
           required
+          errorMessage='enter a city'
           />
          
         </div>
 
         <div className="mb-3">
           <label htmlFor="countryTournament" className="form-label">country</label>
-          <input 
+          <InputForm 
           type="text" 
           className="form-control" 
           id="countryTournament" 
           name="country"
           value={data.country}
           onChange={onHandleChange}
-         required/>
+         required
+         errorMessage='enter a country'
+         />
          
         </div>
         <div className="mb-3">
           <label htmlFor="dateTournament" className="form-label">date</label>
-          <input 
+          <InputForm
          type="date" 
          className="form-control" 
          id="dateTournament" 
@@ -151,13 +159,14 @@ const TournamentCreate = () => {
          value={data.date}
          onChange={onHandleChange}
          required
+         errorMessage='enter a date'
          />
          
         </div>
 
         <div className="mb-3">
           <label htmlFor="capacityTournament" className="form-label">capacity available</label>
-          <input 
+          <InputForm 
           type="number" 
           className="form-control" 
           id="capacityTournament" 
@@ -165,6 +174,7 @@ const TournamentCreate = () => {
           value={data.capacity_available}
           onChange={onHandleChange}
           required
+          errorMessage='enter a number'
           />
          
         </div>
