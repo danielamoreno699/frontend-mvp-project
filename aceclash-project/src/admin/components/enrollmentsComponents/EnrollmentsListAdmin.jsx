@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 import { getAllEnrollmentsUsers } from "../../../store/enrollments"
 import { useEffect} from 'react';
 import Button from 'react-bootstrap/Button';
@@ -42,20 +43,28 @@ import { useDispatch, useSelector } from 'react-redux';
                   <td>{enrollment._id}</td>
                   <td>{enrollment.userId.name}</td>
                  
-                  <td>{enrollment.userId.email}</td>
-                  <td>{enrollment.tournamentId.name}</td>
-                  <td>{enrollment.league}</td>
-                  <td>{enrollment.club}</td>
-		              <td>{enrollment.category}</td>
-		              <td>{enrollment.practice_location}</td>
-                  <td>
+                    <td>{enrollment.userId.email}</td>
+                    <td>{enrollment.tournamentId.name}</td>
+                    <td>{enrollment.league}</td>
+                    <td>{enrollment.club}</td>
+		                <td>{enrollment.category}</td>
+		                <td>{enrollment.practice_location}</td>
+                    <td>
                     <div className="d-flex justify-content-around">
                       <Button
                         variant="primary"
                         className="mr-3"
                         
                       >
-                        Update User
+                        see details 
+                      </Button>
+
+                      <Button
+                        variant="primary"
+                        className="mr-3"
+                        
+                      >
+                        delete
                       </Button>
                      
                     </div>
