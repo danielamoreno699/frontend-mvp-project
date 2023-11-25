@@ -35,7 +35,15 @@ const TournamentCreate = () => {
           };
 
           const onHandleSubmit = async(e) => {
+
             e.preventDefault()
+
+            try {
+                await dispatch(createTournament(data))
+                navigate('/tournaments')
+            } catch (error) {
+                console.log(error)
+            }
 
           }
 
@@ -67,7 +75,7 @@ const TournamentCreate = () => {
           type="text" 
           className="form-control" 
           id="name" 
-          name="nameTournament"
+          name="name"
           value={data.name}
           onChange={onHandleChange}
           required
@@ -100,6 +108,7 @@ const TournamentCreate = () => {
           id="locationTournament"
           name="location"
           value={data.location}
+          onChange={onHandleChange}
          required
 
            />
