@@ -1,8 +1,69 @@
-
+import { getAllEnrollmentsUsers } from "../../../store/enrollments"
+import { useEffect} from 'react';
+import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table';
+import { useDispatch, useSelector } from 'react-redux';
 
  const EnrollmentsListAdmin = () => {
+
+  
+  const dispatch = useDispatch();
+  const { enrollments } = useSelector((state) => state.enrollments);
+
+
+  useEffect(() => {
+    dispatch(getAllEnrollmentsUsers());
+  }, [dispatch]);
+
   return (
-    <div>EnrollmentsList</div>
+    <>
+     <section className="container-section">
+        <h1>Users List</h1>
+        <div className="users-container">
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Tournament Id</th>
+                <th>User Id</th>
+                <th>league</th>
+                <th>club</th>
+                <th>category</th>
+                <th>practice location</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {enrollments.map((enrollment) => (
+                <tr key={enrollment._id}>
+                  <td>{enrollment._id}</td>
+                  <td>{enrollment.tournamentId}</td>
+                  <td>{enrollment.userId}</td>
+                  <td>{enrollment.league}</td>
+                  <td>{enrollment.club}</td>
+		              <td>{enrollment.category}</td>
+		              <td>{enrollment.practice_location}</td>
+                  <td>
+                    <div className="d-flex justify-content-around">
+                      <Button
+                        variant="primary"
+                        className="mr-3"
+                        
+                      >
+                        Update User
+                      </Button>
+                     
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
+      </section>
+    
+    
+    </>
   )
 }
 
