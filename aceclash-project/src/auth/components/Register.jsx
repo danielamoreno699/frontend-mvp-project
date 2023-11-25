@@ -48,6 +48,7 @@ export const RegisterNewUser = () => {
           icon: 'success',
           title: 'User has been registered successfully',
           text: 'Please login to continue',
+          
         })
       
         navigate('/auth/login');

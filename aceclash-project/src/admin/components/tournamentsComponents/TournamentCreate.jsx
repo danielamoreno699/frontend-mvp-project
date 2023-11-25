@@ -5,8 +5,7 @@ import { useDispatch } from 'react-redux';
 import {useNavigate } from 'react-router-dom';
 import { createTournament } from '../../../store/tournaments';
 import InputForm from '../../../auth/components/inputForm';
-
-
+import Swal from 'sweetalert2';
 
 const TournamentCreate = () => {
 
@@ -40,10 +39,22 @@ const TournamentCreate = () => {
             e.preventDefault()
 
             try {
+                
                 await dispatch(createTournament(data))
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Tournament Created Successfully!',
+                  showConfirmButton: false,
+                  timer: 1500, 
+                });
                 navigate('/tournaments')
             } catch (error) {
                 console.log(error)
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'Something went wrong!',
+                });
             }
 
           }

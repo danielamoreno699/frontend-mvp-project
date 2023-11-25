@@ -35,6 +35,8 @@ export const Login = () => {
           icon: 'success',
           title: 'Successful',
           text: 'User logged in successfully',
+          showConfirmButton: false,
+          timer: 1500, 
         });
 
         navigate('/');
