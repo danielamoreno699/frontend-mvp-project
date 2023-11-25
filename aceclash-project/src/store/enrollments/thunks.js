@@ -10,6 +10,7 @@ export const getAllEnrollmentsUsers = () => {
             const response = await appApi.get('/enrollments/users')
             
             dispatch(fulfilled(response.data));
+            console.log('api enrollments', response.data)
             return response.data;
         } catch (error) {
             dispatch(rejected(error.response) || '');          
