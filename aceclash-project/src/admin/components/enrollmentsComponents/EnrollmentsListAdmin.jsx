@@ -24,7 +24,10 @@ import { useDispatch, useSelector } from 'react-redux';
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Tournament Id</th>
+                <th>enrollment user name</th>
+                
+                <th>enrollment user email</th>
+                <th>Tournament name</th>
           
                 <th>league</th>
                 <th>club</th>
@@ -37,7 +40,9 @@ import { useDispatch, useSelector } from 'react-redux';
               {enrollments.map((enrollment) => (
                 <tr key={enrollment._id}>
                   <td>{enrollment._id}</td>
-             
+                  <td>{enrollment.userId.name}</td>
+                 
+                  <td>{enrollment.userId.email}</td>
                   <td>{enrollment.tournamentId.name}</td>
                   <td>{enrollment.league}</td>
                   <td>{enrollment.club}</td>
