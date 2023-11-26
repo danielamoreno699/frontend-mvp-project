@@ -4,32 +4,33 @@ export const enrollmentsSlice = createSlice({
     initialState: {
         status: 'checking',
         enrollments: [],
-        enrollmentDetails: {},
+        enrollmentInf: {},
         errorMessage: undefined
     },
     reducers: {
         pending: (state) =>{
             state.status = 'checking';
             state.enrollments = [];
-            state.enrollmentDetails= {};
+            state.enrollmentInf= {};
             state.errorMessage = undefined
         },
         fulfilled : (state, {payload}) =>{
             state.status = 'succceded'
             state.enrollments = payload
-            state.enrollmentDetails = {}
+            state.enrollmentInf = {}
             state.errorMessage = undefined
         },
         fulfilledEnrollment : (state, {payload}) =>{
             state.status = 'succceded'
             state.enrollments = []
-            state.enrollmentDetails = payload
+            state.enrollmentInf = payload
+            console.log('payload', payload)
             state.errorMessage = undefined
         },
         rejected : (state, {payload}) =>{
             state.status = 'failed'
             state.enrollments = [],
-            state.enrollmentDetails = {}
+            state.enrollmentInf = {}
             state.errorMessage = payload
         },
 

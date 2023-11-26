@@ -22,9 +22,9 @@ import { useNavigate } from "react-router-dom";
 
   
   const onHandleSeeDetails = (enrollmentId) => {
-    console.log(enrollmentId);
+    console.log('id', enrollmentId);
     dispatch(getEnrollmentById(enrollmentId));
-    navigate(`/enrollments-users/{enrollmentId}`);
+    navigate(`/enrollments-users/${enrollmentId}`);
     
   }
 

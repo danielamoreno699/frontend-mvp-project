@@ -28,8 +28,9 @@ export const getEnrollmentById = (id) => {
         try {
             const response = await appApi.get(`/enrollments/${id}`)
           
-            dispatch(fulfilledEnrollment(response.data));
+           
             console.log('api single enrollment', response.data)
+            dispatch(fulfilledEnrollment(response.data));
             return response.data;
         } catch (error) {
             dispatch(rejected(error.response) || '');          
