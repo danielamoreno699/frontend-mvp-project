@@ -43,9 +43,7 @@ import { useNavigate } from "react-router-dom";
                 <th>Tournament name</th>
           
                 <th>league</th>
-                <th>club</th>
-                <th>category</th>
-                <th>practice location</th>
+               
                 <th>Actions</th>
               </tr>
             </thead>
@@ -58,9 +56,7 @@ import { useNavigate } from "react-router-dom";
                     <td>{enrollment.userId.email}</td>
                     <td>{enrollment.tournamentId.name}</td>
                     <td>{enrollment.league}</td>
-                    <td>{enrollment.club}</td>
-		                <td>{enrollment.category}</td>
-		                <td>{enrollment.practice_location}</td>
+                    
                     <td>
                     <div className="d-flex justify-content-around">
                       <Button
@@ -72,7 +68,7 @@ import { useNavigate } from "react-router-dom";
                       </Button>
 
                       <Button
-                        variant="primary"
+                        variant="danger"
                         className="mr-3"
                         
                       >
