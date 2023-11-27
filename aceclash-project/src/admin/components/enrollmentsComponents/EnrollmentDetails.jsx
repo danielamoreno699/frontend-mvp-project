@@ -31,6 +31,10 @@ const navigate = useNavigate();
     navigate(-1);
     }
 
+    const onHandleUpdateEnrollment = (id) => {
+      navigate(`/edit-enrollments-users/${id}`);
+    };
+
   return (
     <div>
         <h1>Enrollment Details</h1>
@@ -74,7 +78,9 @@ const navigate = useNavigate();
           <Button variant="primary" onClick={handleGoBack}>
             Go Back
           </Button>
-          <Button variant="secondary" className="ml-2">
+          <Button variant="secondary" className="ml-2"
+          onClick= {() => onHandleUpdateEnrollment(enrollment._id)}
+          >
             Update Tournament
           </Button>
         </div>
