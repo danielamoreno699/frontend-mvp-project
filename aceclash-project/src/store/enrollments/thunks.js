@@ -47,7 +47,24 @@ export const updateEnrollment = (id, data) => {
         try {
             const response = await appApi.put(`/enrollments/${id}`, data)
            
-            console.log('api update enrollment', response.data)
+        
+            return response.data;
+        } catch (error) {
+            dispatch(rejected(error.response) || '');          
+        }
+        
+      };
+}
+
+//create enrollment
+export const createEnrollment = (data) => {
+    return async (dispatch) => {
+        dispatch(pending());
+    
+        try {
+            const response = await appApi.post('/enrollments', data)
+           
+            console.log('api create enrollment', response.data)
             return response.data;
         } catch (error) {
             dispatch(rejected(error.response) || '');          
