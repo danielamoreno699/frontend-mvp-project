@@ -72,3 +72,20 @@ export const createEnrollment = (data) => {
         
       };
 }
+
+//delete enrollment
+export const deleteEnrollment = (id) => {
+    return async (dispatch) => {
+        dispatch(pending());
+    
+        try {
+            const response = await appApi.delete(`/enrollments/${id}`)
+           
+        
+            return response.data;
+        } catch (error) {
+            dispatch(rejected(error.response) || '');          
+        }
+        
+      };
+}
