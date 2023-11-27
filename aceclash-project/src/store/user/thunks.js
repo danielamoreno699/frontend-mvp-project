@@ -1,6 +1,6 @@
 
 import appApi from "../../api/authApi"
-import {  pending, fulfilled, rejected} from "./"
+import {  pending, fulfilled, rejected, deleteUserSuccess} from "./"
 
 
 // function that displays all users 
@@ -43,7 +43,7 @@ export const deleteUser = (id) => {
         try {
             const response = await appApi.delete(`/users/${id}`)
            
-            dispatch(fulfilled(response.data));
+            dispatch(deleteUserSuccess(response.data));
         } catch (error) {
             dispatch(rejected(error.response) || '');          
         }

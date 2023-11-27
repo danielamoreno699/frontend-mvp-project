@@ -4,7 +4,7 @@ import Table from 'react-bootstrap/Table';
 import { getAllUsers } from '../../store/user';
 import { useDispatch, useSelector } from 'react-redux';
 import UserUpdateComponent from './UserUpdateComponent';
-import { updateUser } from '../../store/user';
+import { updateUser, deleteUser } from '../../store/user';
 import { checkingEmptyFields } from '../../helpers/EmpValues';
 
 import Swal from 'sweetalert2';
@@ -59,6 +59,34 @@ const UsersListComponent = () => {
      
     }
   };
+
+  const onHandleDelete = (userId) => {
+    console.log(userId);
+    Swal.fire({
+      title: 'Delete user',
+      text: 'Are you sure you want to delete this user?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, delete it!',
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await dispatch(deleteUser(userId));
+          Swal.fire('Deleted!', 'The user has been deleted.', 'success');
+          
+          // Fetch users after a successful delete
+          dispatch(getAllUsers());
+        } catch (error) {
+          console.error('Error deleting user:', error);
+          Swal.fire('Error', 'An error occurred while deleting the user.', 'error');
+        }
+      }
+    });
+  };
+  
+  
   
 
   return (
@@ -93,6 +121,14 @@ const UsersListComponent = () => {
                         onClick={() => onHandleUpdateUser(user)}
                       >
                         Update User
+                      </Button>
+
+                      <Button
+                        variant="danger"
+                        className="mr-3"
+                        onClick={() => onHandleDelete(user._id)}
+                      >
+                        Delete User
                       </Button>
                      
                     </div>

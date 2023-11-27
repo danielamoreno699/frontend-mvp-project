@@ -22,9 +22,12 @@ export const usersSlice = createSlice({
             state.users = []
             state.errorMessage = payload
         },
+        deleteUserSuccess: (state, { payload }) => {
+            state.users = state.users.filter((user) => user._id !== payload.deletedUserId);
+          },
 
 
        
     },
 });
-export const { pending, fulfilled, rejected } = usersSlice.actions;
+export const { pending, fulfilled, rejected, deleteUserSuccess } = usersSlice.actions;
