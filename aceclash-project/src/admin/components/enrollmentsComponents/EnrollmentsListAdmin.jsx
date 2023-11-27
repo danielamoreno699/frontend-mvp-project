@@ -6,6 +6,8 @@ import Table from 'react-bootstrap/Table';
 import { useDispatch, useSelector } from 'react-redux';
 import { getEnrollmentById } from "../../../store/enrollments";
 import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
+import { deleteEnrollment } from "../../../store/enrollments";
 
  const EnrollmentsListAdmin = () => {
 
@@ -26,6 +28,32 @@ import { useNavigate } from "react-router-dom";
     dispatch(getEnrollmentById(enrollmentId));
     navigate(`/enrollments-users/${enrollmentId}`);
     
+  }
+
+  const onHandleDelete = (enrollmentId) => {
+    console.log(enrollmentId);
+    Swal.fire({
+      title: 'Delete enrollment',
+      text: 'Are you sure you want to delete this enrollment?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+      
+        dispatch(deleteEnrollment(enrollmentId))
+          .then(() => {
+            dispatch(getAllEnrollmentsUsers());
+            Swal.fire('Deleted!', 'The item has been deleted.', 'success'); 
+          })
+          .catch((error) => {
+            console.error('Error deleting item:', error);
+            Swal.fire('Error', 'An error occurred while deleting the item.', 'error'); 
+          });
+      }
+    });
   }
 
   return (
@@ -70,7 +98,7 @@ import { useNavigate } from "react-router-dom";
                       <Button
                         variant="danger"
                         className="mr-3"
-                        
+                        onClick={() => onHandleDelete(enrollment._id)}
                       >
                         delete
                       </Button>
