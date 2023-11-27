@@ -131,7 +131,7 @@ import Swal from 'sweetalert2';
             onChange={handleInputChange}
             required
             placeholder="Email"
-            //pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$"
             errorMessage='should be a valid email'
             />
 
@@ -172,7 +172,7 @@ import Swal from 'sweetalert2';
             onChange={handleInputChange}
             required
             placeholder="Password"
-            //pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{4,20}$"
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{4,20}$"
             errorMessage='password should be 8-20 characters long and include at least one number, one lowercase letter, one uppercase letter.'
             />
          
