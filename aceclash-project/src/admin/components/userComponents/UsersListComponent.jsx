@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
-import { getAllUsers } from '../../store/user';
+import { getAllUsers } from '../../../store/user';
 import { useDispatch, useSelector } from 'react-redux';
 import UserUpdateComponent from './UserUpdateComponent';
-import { updateUser, deleteUser } from '../../store/user';
-import { checkingEmptyFields } from '../../helpers/EmpValues';
+import { updateUser, deleteUser } from '../../../store/user';
+import { checkingEmptyFields } from '../../../helpers/EmpValues';
 
 import Swal from 'sweetalert2';
 

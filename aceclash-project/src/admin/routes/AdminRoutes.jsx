@@ -2,7 +2,7 @@
 
 import { Routes, Route } from 'react-router-dom';
 import NavbarAdmin from '../components/Navbar';
-import UsersListComponent from '../userComponents/UsersListComponent';
+import UsersListComponent from '../components/userComponents/UsersListComponent';
 import '../styles/indexAdmin.css';
 import TournamentsListComponent from '../components/tournamentsComponents/TournamentsListComponent';
 import TournamentId from '../components/tournamentsComponents/TournamentId';
