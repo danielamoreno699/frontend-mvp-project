@@ -37,6 +37,9 @@ const NavbarAdmin = () => {
                     <li>
                         <a className="nav-link" href="/">display users</a>
                     </li>
+                    <li>
+                        <a className="nav-link" href="/create-user">create user</a>
+                    </li>
               
                     <li className="nav-item">
                         <a className="nav-link" href="/createTournament">create Tournament</a>

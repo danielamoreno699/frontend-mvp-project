@@ -12,6 +12,7 @@ import EnrollmentsListAdmin from '../components/enrollmentsComponents/Enrollment
 import EnrollmentDetails from '../components/enrollmentsComponents/EnrollmentDetails';
 import EnrollmentUpdate from '../components/enrollmentsComponents/EnrollmentUpdate';
 import EnrollmentCreate from '../components/enrollmentsComponents/EnrollmentCreate';
+import UserCreate from '../components/userComponents/UserCreate';
 
 // Define the AdminRoutes component
 export const AdminRoutes = () => {
@@ -22,6 +23,7 @@ export const AdminRoutes = () => {
         <Routes>
         
           <Route path="/" element={<UsersListComponent />} />
+          <Route path="/create-user" element={< UserCreate/>} />
           <Route path= "/tournaments" element={<TournamentsListComponent/>} />
           <Route path= "/tournaments/:id" element={<TournamentId/>} />
           <Route path= "/editTournament/:id" element={<TournamentUpdate/>} />
