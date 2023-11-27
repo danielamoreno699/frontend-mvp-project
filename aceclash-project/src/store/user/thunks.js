@@ -52,14 +52,14 @@ export const deleteUser = (id) => {
 }
 
 // create user
-export const createUser = (data) => {
+export const createUserAdmin = (data) => {
     return async (dispatch) => {
         dispatch(pending());
     
         try {
             const response = await appApi.post('/users', data)
            
-            dispatch(fulfilled(response.data));
+            return response.data;
         } catch (error) {
             dispatch(rejected(error.response) || '');          
         }

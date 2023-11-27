@@ -4,6 +4,9 @@ import {useNavigate } from 'react-router-dom';
 import Form from "react-bootstrap/Form";
 import InputForm from '../../../auth/components/inputForm';
 import '../../styles/tournamentForm.css'
+import { createUserAdmin } from '../../../store/user';
+
+import Swal from 'sweetalert2';
 
  const UserCreate = () => {
   
@@ -33,7 +36,30 @@ import '../../styles/tournamentForm.css'
 
 
     const onHandleSubmit = async (e) => {
-        console.log('formData', formData, e)
+        e.preventDefault();
+        try {
+            const response = await dispatch(createUserAdmin(formData));
+            console.log('res', response);
+            if (response) {
+
+                Swal.fire({
+                    title: 'User Created successfully',
+                    icon: 'success',
+                    confirmButtonText: 'ok'
+                })
+
+                navigate(`/`);
+            } else {
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Error creating User',
+                    icon: 'error',
+                    confirmButtonText: 'ok'
+                })
+            }
+        } catch (error) {
+            throw new error('Oops some error ocurred');
+        }
     }
   
   
@@ -105,7 +131,7 @@ import '../../styles/tournamentForm.css'
             onChange={handleInputChange}
             required
             placeholder="Email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$"
+            //pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$"
             errorMessage='should be a valid email'
             />
 
@@ -146,7 +172,7 @@ import '../../styles/tournamentForm.css'
             onChange={handleInputChange}
             required
             placeholder="Password"
-            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{4,20}$"
+            //pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{4,20}$"
             errorMessage='password should be 8-20 characters long and include at least one number, one lowercase letter, one uppercase letter.'
             />
          
