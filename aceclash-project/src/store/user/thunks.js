@@ -50,3 +50,19 @@ export const deleteUser = (id) => {
         
       };
 }
+
+// create user
+export const createUser = (data) => {
+    return async (dispatch) => {
+        dispatch(pending());
+    
+        try {
+            const response = await appApi.post('/users', data)
+           
+            dispatch(fulfilled(response.data));
+        } catch (error) {
+            dispatch(rejected(error.response) || '');          
+        }
+        
+      };
+}
