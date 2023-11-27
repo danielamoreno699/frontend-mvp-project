@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 export const tournamentsSlice = createSlice({
-    name: 'user',
+    name: 'tournaments',
     initialState: {
         status: 'checking',
         tournaments: [],

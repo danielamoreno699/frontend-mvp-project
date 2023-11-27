@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { createEnrollment } from "../../../store/enrollments";
 import InputForm from "../../../auth/components/inputForm";
+import { getAllUsers } from "../../../store/user";
 
  const EnrollmentCreate = () => {
 
@@ -13,7 +14,11 @@ import InputForm from "../../../auth/components/inputForm";
     const navigate = useNavigate();
 
     const { tournaments } = useSelector((state) => state.tournaments);
+    console.log('tournaments', tournaments)
+    const { users } = useSelector((state) => state.users);
+    console.log('users', tournaments)
 
+ 
     const [selectedData, setSelectedData] = useState({
         tournamentId:'',
         userId: '',
@@ -28,13 +33,14 @@ import InputForm from "../../../auth/components/inputForm";
         const { name, value } = e.target;
         setSelectedData((prev) => ({
             ...prev,
-            userId: JSON.parse(localStorage.getItem('user'))._id,
+            //userId: JSON.parse(localStorage.getItem('user'))._id,
             [name]: value,
         }));
     }
 
     useEffect(() => {
         dispatch(getTournaments());
+        dispatch(getAllUsers());
     }, [dispatch]);
 
 
@@ -96,6 +102,31 @@ import InputForm from "../../../auth/components/inputForm";
 
          
         </div>
+        <div className="mb-3">
+          <label htmlFor="idTournament" className="form-label">select User</label>
+          
+          
+                <Form.Select
+                  aria-label="Select a Tour"
+                  className="bg-color rounded-border"
+                  onChange={onHandleChange}
+                  value={selectedData.userId}
+                  name="userId"
+                  required
+                  errorMessage='select a user id'
+                >
+                  <option>Pick a user</option>
+
+                  {users.map((user) => (
+                    <option key={user._id} value={user._id}>
+                      {user.name}
+                    </option>
+                  ))}
+                </Form.Select>
+
+         
+        </div>
+
 
         <div className="mb-3">
           <label htmlFor="league" className="form-label">league</label>

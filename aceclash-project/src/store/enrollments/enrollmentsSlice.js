@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 export const enrollmentsSlice = createSlice({
-    name: 'user',
+    name: 'enrollments',
     initialState: {
         status: 'checking',
         enrollments: [],
