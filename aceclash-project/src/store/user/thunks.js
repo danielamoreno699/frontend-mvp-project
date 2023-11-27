@@ -19,6 +19,7 @@ export const getAllUsers = () => {
       };
 }
 
+// update user info
 export const updateUser = (id, data) => {
     return async (dispatch) => {
         dispatch(pending());
@@ -26,6 +27,22 @@ export const updateUser = (id, data) => {
         try {
             const response = await appApi.put(`/users/${id}`, data)
        
+            dispatch(fulfilled(response.data));
+        } catch (error) {
+            dispatch(rejected(error.response) || '');          
+        }
+        
+      };
+}
+
+//delete user
+export const deleteUser = (id) => {
+    return async (dispatch) => {
+        dispatch(pending());
+    
+        try {
+            const response = await appApi.delete(`/users/${id}`)
+           
             dispatch(fulfilled(response.data));
         } catch (error) {
             dispatch(rejected(error.response) || '');          
