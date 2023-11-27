@@ -47,6 +47,9 @@ const NavbarAdmin = () => {
                     <li className="nav-item">
                         <a className="nav-link" href="/enrollments-users">display enrollements of Users</a>
                     </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="/create-enrollments-users">create enrollment</a>
+                    </li>
                 </ul>
             <footer className='ml-auto p-2 align-content-lg-end'>
           {/* Contacts */}
