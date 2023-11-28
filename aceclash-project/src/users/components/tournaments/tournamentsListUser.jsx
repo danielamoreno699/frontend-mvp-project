@@ -13,7 +13,7 @@ import { getTournaments, getTournamentById } from '../../../store/tournaments';
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { tournaments } = useSelector((state) => state.tournaments);
-
+    console.log('tournaments', tournaments);
     
   useEffect(() => {
     dispatch(getTournaments());

@@ -9,7 +9,6 @@ import '../styles/Navbar.css'
  
     const user = useSelector((state) => state.auth.user);
     const userDataString = JSON.parse(localStorage.getItem('user'));
-    console.log ('userDataString', userDataString._id)
     const userId = user ? userDataString._id : null;
  
     return (
