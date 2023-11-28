@@ -1,15 +1,22 @@
-
-import  { useState } from 'react';
+import {  useSelector, useDispatch } from "react-redux";
+import  { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import { getTournaments } from "../../../store/tournaments";
+
 
 
 const EnrollmentUpdateUser = ({ show, setShow,  submitUpdate }) => {
+    const dispatch = useDispatch();
+    const { tournaments } = useSelector((state) => state.tournaments);
+
+
     const handleClose = () => setShow(false);
   
     const [data, setData] = useState({
+        tournamentId: '',
         league: '',
         club: '',
         category: '',
@@ -23,6 +30,11 @@ const EnrollmentUpdateUser = ({ show, setShow,  submitUpdate }) => {
           [name]: value,
         }));
       };
+
+
+    useEffect(() => {
+        dispatch(getTournaments());
+    }, [dispatch]);
     
       
   const handleSubmit = (e) => {
@@ -39,6 +51,33 @@ const EnrollmentUpdateUser = ({ show, setShow,  submitUpdate }) => {
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
+            
+          <Form.Group className="mb-3">
+          <Form.Label>select tournament</Form.Label>
+          
+          
+                <Form.Select
+                  aria-label="Select a Tour"
+                  className="bg-color rounded-border"
+                  onChange={onHandleChange}
+                  value={data.tournamentId}
+                  name="tournamentId"
+                 
+                  errorMessage='select a tournament'
+                >
+                  <option>Pick a Tournament</option>
+
+                  {tournaments.map((tournament) => (
+                    <option key={tournament._id} value={tournament._id}>
+                      {tournament.name}
+                    </option>
+                  ))}
+                </Form.Select>
+
+         
+        </Form.Group>
+            
+            
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>league</Form.Label>
               <Form.Control
