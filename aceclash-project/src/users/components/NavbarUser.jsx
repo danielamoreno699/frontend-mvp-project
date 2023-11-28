@@ -29,6 +29,9 @@ import '../styles/Navbar.css'
                 <li>
                     <a className="nav-link" href="/tournaments-user">display tournaments</a>
                 </li>
+                <li>
+                    <a className="nav-link" href="/enrollments">display enrollments</a>
+                </li>
                
             </ul>
         <footer className='ml-auto p-2 align-content-lg-end'>
