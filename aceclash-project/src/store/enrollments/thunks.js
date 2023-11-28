@@ -96,9 +96,9 @@ export const getEnrollmentsByUserRole = (userId) => {
         dispatch(pending());
     
         try {
-            const response = await appApi.get(`/enrollments/${userId}`)
-           
-            fulfilled(response.data)
+            const response = await appApi.get(`/enrollments/${userId}/user-details`)
+           console.log('response api get enrollments by id', response.data)
+            //fulfilled(response.data)
             return response.data;
         } catch (error) {
             dispatch(rejected(error.response) || '');          

@@ -10,10 +10,12 @@ import { useParams } from "react-router-dom";
     const dispatch = useDispatch();
     //const navigate = useNavigate();
     const { enrollments } = useSelector((state) => state.enrollments);
+    
+    console.log('enrollments', enrollments);
 
     useEffect(() => {
-        dispatch(getEnrollmentsByUserRole());
-        }, [dispatch]);
+        dispatch(getEnrollmentsByUserRole(userId));
+        }, [dispatch, userId]);
 
   return (
     <>
