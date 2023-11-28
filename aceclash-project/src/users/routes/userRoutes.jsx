@@ -4,7 +4,7 @@ import EnrollmentsUserList from "../components/enrollmentsUser/enrollmentsUserLi
 import { Routes, Route } from 'react-router-dom';
 import '../styles/indexUser.css';
 
-export const userRoutes = () => {
+export const UserRoutes = () => {
   return (
     <div className="user-container">
     <NavbarUser/>

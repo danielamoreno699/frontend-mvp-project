@@ -5,6 +5,7 @@ import { AuthRoutes } from "../auth/routes/AuthRoutes";
 import { useSelector, useDispatch } from 'react-redux';
 import { persistLogin } from "../store/auth";
 import { AdminRoutes } from "../admin/routes/AdminRoutes";
+import { UserRoutes } from "../users/routes/userRoutes";
 
 export const AppRouter = () => {
     const authStatus = useSelector((state) => state.auth.status);
@@ -47,7 +48,7 @@ export const AppRouter = () => {
                     authStatus === 'authenticated' ? (
                         <>
                    
-                        {user.role === 'admin' ? <AdminRoutes /> : 'hello user'}
+                        {user.role === 'admin' ? <AdminRoutes /> : <UserRoutes/>}
                         </>
                         
 
