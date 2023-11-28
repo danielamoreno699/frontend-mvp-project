@@ -1,19 +1,24 @@
 import Navbar from 'react-bootstrap/Navbar';
-import { useSelector} from 'react-redux';
+import { useSelector, useDispatch} from 'react-redux';
 import Nav from 'react-bootstrap/Nav';
 import { useNavigate } from "react-router-dom";
 import { AiFillFacebook, AiFillGoogleCircle, AiFillPhone,  AiOutlineTwitter, AiTwotoneMail } from 'react-icons/ai';
 import '../styles/Navbar.css'
+import { logout } from '../../store/auth';
+
 
 const NavbarAdmin = () => {
 
     const user = useSelector((state) => state.auth.user);
+    const dispatch = useDispatch();
+
 
     const navigate = useNavigate();
     const onLogout = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        localStorage.removeItem('token-start-date');
+        dispatch(logout());
+        // localStorage.removeItem('token');
+        // localStorage.removeItem('user');
+        // localStorage.removeItem('token-start-date');
         navigate('/auth/login');
         
     }
