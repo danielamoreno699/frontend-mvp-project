@@ -31,6 +31,9 @@ import '../styles/Navbar.css'
                     <a className="nav-link" href="/">display tournaments</a>
                 </li>
                 <li>
+                    <a className="nav-link" href="/enrollment-create-nav">create enrollment</a>
+                </li>
+                <li>
                 <Link className="nav-link" to={`/enrollments-list/${userId}`}>
             Display Enrollments
               </Link>

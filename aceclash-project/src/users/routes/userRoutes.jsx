@@ -4,6 +4,7 @@ import EnrollmentsUserList from "../components/enrollmentsUser/enrollmentsUserLi
 import { Routes, Route } from 'react-router-dom';
 import TournamentId from "../components/tournaments/tournamentId";
 import EnrollmentCreateUser from "../components/enrollmentsUser/enrollmentCreateUser";
+import EnrollmentCreateUserNav from "../components/enrollmentsUser/enrollmentCreateUserNav";
 
 import '../styles/indexUser.css';
 
@@ -18,6 +19,7 @@ export const UserRoutes = () => {
         <Route path="/tournament-details/:id" element={<TournamentId/>} />
         <Route path="/enrollments-list/:userId" element={<EnrollmentsUserList/>} />
         <Route path="/enrollment-create/:id" element={< EnrollmentCreateUser />} />
+        <Route path="/enrollment-create-nav" element={< EnrollmentCreateUserNav />} />
       
 
 
