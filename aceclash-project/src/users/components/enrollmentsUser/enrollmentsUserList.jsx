@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import EnrollmentUpdateUser from './enrollmentUpdateUser';
 import { updateEnrollment } from '../../../store/enrollments';
 import { checkingEmptyFields } from '../../../helpers/EmpValues';
+import { deleteEnrollment } from '../../../store/enrollments';
 import Swal from 'sweetalert2';
 
  const EnrollmentsUserList = () => {
@@ -32,6 +33,32 @@ import Swal from 'sweetalert2';
         setShowModal(true);
         
       }
+
+      const onHandleDelete = (enrollmentId) => {
+        console.log(enrollmentId);
+        Swal.fire({
+          title: 'Delete enrollment',
+          text: 'Are you sure you want to delete this enrollment?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#d33',
+          cancelButtonColor: '#3085d6',
+          confirmButtonText: 'Yes, delete it!',
+        }).then(async (result) => {
+          if (result.isConfirmed) {
+            try {
+              await dispatch(deleteEnrollment(enrollmentId));
+              Swal.fire('Deleted!', 'The user has been deleted.', 'success');
+              
+              // Fetch users after a successful delete
+              dispatch(getEnrollmentsByUserId(enrollments.userId));
+            } catch (error) {
+              console.error('Error deleting user:', error);
+              Swal.fire('Error', 'An error occurred while deleting the user.', 'error');
+            }
+          }
+        });
+      };
 
     
       const submitUpdate = async (data) => {
@@ -90,7 +117,10 @@ import Swal from 'sweetalert2';
         variant="primary"
         onClick = {() => onHandleUpdateEnrollment(enrollment)} 
         >update</Button>
-        <Button variant="danger">delete</Button>
+        <Button variant="danger"
+        onClick={() => onHandleDelete(enrollment._id)}
+        >delete
+        </Button>
       </Card.Body>
     </Card>
   ))}
