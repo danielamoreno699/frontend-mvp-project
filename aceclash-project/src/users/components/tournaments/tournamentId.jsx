@@ -52,7 +52,7 @@ import '../../styles/tournamentsDetails.css';
           <Button variant="primary" onClick={handleGoBack}>
             Go Back
           </Button>
-          <Button variant="primary" onClick={onHandleCreateEnrollment}>
+          <Button variant="success" onClick={onHandleCreateEnrollment}>
             Enroll
           </Button>
         </div>
