@@ -14,6 +14,7 @@ const EnrollmentCreateUser = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const userIdParsed = JSON.parse(localStorage.getItem('user'))._id;
 
   const [selectedData, setSelectedData] = useState({
     tournamentId:'',
@@ -30,7 +31,7 @@ const onHandleChange = (e) => {
   setSelectedData((prev) => ({
       ...prev,
       tournamentId: id,
-      userId: JSON.parse(localStorage.getItem('user'))._id,
+      userId: userIdParsed,
       [name]: value,
   }));
 }
@@ -48,7 +49,7 @@ const handleSubmit = async (e) => {
               confirmButtonText: 'ok'
           })
 
-          navigate(`/enrollments-list/${id}`);
+          navigate(`/enrollments-list/${userIdParsed}`);
       } else {
           Swal.fire({
               title: 'Error',
