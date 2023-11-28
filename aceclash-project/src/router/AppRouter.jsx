@@ -1,4 +1,5 @@
-// AppRouter.js
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import { useEffect } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { AuthRoutes } from "../auth/routes/AuthRoutes";
