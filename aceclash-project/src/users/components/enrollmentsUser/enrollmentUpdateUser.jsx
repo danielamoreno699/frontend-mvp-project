@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
-import  { useState } from 'react';
 
+import  { useState } from 'react';
+import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
@@ -96,5 +96,11 @@ const EnrollmentUpdateUser = ({ show, setShow,  submitUpdate }) => {
       </Modal>
   )
 }
+
+EnrollmentUpdateUser.propTypes = {
+    show: PropTypes.bool.isRequired,
+    setShow: PropTypes.func.isRequired,
+    submitUpdate: PropTypes.func.isRequired,
+  };
 
 export default EnrollmentUpdateUser
