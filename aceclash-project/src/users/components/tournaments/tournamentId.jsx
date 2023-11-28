@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { getTournamentById } from '../../../store/tournaments';
+import '../../styles/tournamentsDetails.css';
 
  const TournamentId = () => {
     const dispatch = useDispatch();
@@ -21,9 +22,10 @@ import { getTournamentById } from '../../../store/tournaments';
       };
   
     return (
-        <div>
+        <div className="container">
+      <div className="card-container">
         <h1>Tournament Details</h1>
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '40rem', height:'40rem' }}>
           <Card.Img variant="top" src={tournamentDetails.img} alt="Tournament" />
           <Card.Body>
             <Card.Title>{tournamentDetails.name}</Card.Title>
@@ -46,11 +48,12 @@ import { getTournamentById } from '../../../store/tournaments';
           <Button variant="primary" onClick={handleGoBack}>
             Go Back
           </Button>
-          <Button variant="primary" >
-            enroll
+          <Button variant="primary">
+            Enroll
           </Button>
         </div>
       </div>
+    </div>
   )
 }
 
