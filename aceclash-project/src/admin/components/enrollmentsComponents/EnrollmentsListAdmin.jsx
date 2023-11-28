@@ -15,7 +15,7 @@ import { deleteEnrollment } from "../../../store/enrollments";
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { enrollments } = useSelector((state) => state.enrollments);
-
+  console.log('enrollments admin', enrollments);
 
   useEffect(() => {
     dispatch(getAllEnrollmentsUsers());
@@ -79,9 +79,9 @@ import { deleteEnrollment } from "../../../store/enrollments";
               {enrollments.map((enrollment) => (
                 <tr key={enrollment._id}>
                   <td>{enrollment._id}</td>
-                  <td>{enrollment.userId.name}</td>
+                  <td>{enrollment.userId ? enrollment.userId.name : 'N/A'}</td>
                  
-                    <td>{enrollment.userId.email}</td>
+                    <td>{enrollment.userId ? enrollment.userId.email : 'N/A'}</td>
                     <td>{enrollment.tournamentId.name}</td>
                     <td>{enrollment.league}</td>
                     
