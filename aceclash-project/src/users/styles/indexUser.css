@@ -1,0 +1,9 @@
+.user-container {
+    display: flex;
+  }
+  
+  .user-content {
+    flex: 1;
+   
+  }
+  

@@ -1,9 +1,9 @@
 
 
- const enrollmentsUserList = () => {
+ const EnrollmentsUserList = () => {
   return (
-    <div>enrollmentsUserList</div>
+    <div>enrollments User List</div>
   )
 }
 
-export default enrollmentsUserList
+export default EnrollmentsUserList

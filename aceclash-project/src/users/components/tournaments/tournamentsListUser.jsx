@@ -1,9 +1,9 @@
 
 
- const tournamentsListUser = () => {
+ const TournamentsListUser = () => {
   return (
-    <div>tournamentsListUser</div>
+    <div>tournaments List User</div>
   )
 }
 
-export default tournamentsListUser
+export default TournamentsListUser
