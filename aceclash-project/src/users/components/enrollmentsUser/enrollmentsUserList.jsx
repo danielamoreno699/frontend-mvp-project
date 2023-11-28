@@ -1,6 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { getEnrollmentsByUserRole } from '../../../store/enrollments';
+import { getEnrollmentsByUserId } from '../../../store/enrollments';
 import { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
@@ -15,14 +15,14 @@ import { useParams } from "react-router-dom";
     console.log('enrollments', enrollments);
 
     useEffect(() => {
-  
-        dispatch(getEnrollmentsByUserRole(userId));
+        dispatch(getEnrollmentsByUserId(userId));
         }, [dispatch, userId]);
 
+    
   return (
     <>
   <h2>Enrollments User List: ID {userId}</h2>
-  {enrollments.map((enrollment) => (
+  {/* {enrollments.map((enrollment) => (
     <Card key={enrollment._id}>
       <Card.Body>
         <Card.Title>{enrollment.userId.name}</Card.Title>
@@ -36,7 +36,7 @@ import { useParams } from "react-router-dom";
         <Button variant="primary">Go somewhere</Button>
       </Card.Body>
     </Card>
-  ))}
+  ))} */}
 </>
     
 

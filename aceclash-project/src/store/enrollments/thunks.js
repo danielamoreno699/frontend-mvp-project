@@ -91,14 +91,14 @@ export const deleteEnrollment = (id) => {
 }
 
 //get enrollments by user role 
-export const getEnrollmentsByUserRole = (userId) => {
+export const getEnrollmentsByUserId = (userId) => {
     return async (dispatch) => {
         dispatch(pending());
     
         try {
             const response = await appApi.get(`/enrollments/${userId}/user-details`)
            console.log('response api get enrollments by id', response.data)
-            fulfilled(response.data)
+           dispatch(fulfilled(response.data));
             return response.data;
         } catch (error) {
             dispatch(rejected(error.response) || '');          
