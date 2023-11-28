@@ -15,7 +15,7 @@ export const UserRoutes = () => {
     <Routes>
         <Route path="/" element={<TournamentsListUser/>} />
         <Route path="/tournament-details/:id" element={<TournamentId/>} />
-        <Route path="/enrollments-list" element={<EnrollmentsUserList/>} />
+        <Route path="/enrollments-list/:userId" element={<EnrollmentsUserList/>} />
         <Route path="/enrollment-create/:id" element={< EnrollmentCreateUser />} />
 
 

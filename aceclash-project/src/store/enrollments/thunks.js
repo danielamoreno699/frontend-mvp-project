@@ -89,3 +89,20 @@ export const deleteEnrollment = (id) => {
         
       };
 }
+
+//get enrollments by user role 
+export const getEnrollmentsByUserRole = (userId) => {
+    return async (dispatch) => {
+        dispatch(pending());
+    
+        try {
+            const response = await appApi.get(`/enrollments/${userId}`)
+           
+            fulfilled(response.data)
+            return response.data;
+        } catch (error) {
+            dispatch(rejected(error.response) || '');          
+        }
+        
+      };
+}

@@ -1,14 +1,16 @@
 import Navbar from 'react-bootstrap/Navbar';
 import { useSelector} from 'react-redux';
 import Nav from 'react-bootstrap/Nav';
-
+import { Link } from 'react-router-dom';
 import { AiFillFacebook, AiFillGoogleCircle, AiFillPhone,  AiOutlineTwitter, AiTwotoneMail } from 'react-icons/ai';
 import '../styles/Navbar.css'
 
  const NavbarUser = () => {
  
     const user = useSelector((state) => state.auth.user);
-
+    const userDataString = JSON.parse(localStorage.getItem('user'));
+    console.log ('userDataString', userDataString._id)
+    const userId = user ? userDataString._id : null;
  
     return (
     <header className="nav-container">
@@ -30,7 +32,9 @@ import '../styles/Navbar.css'
                     <a className="nav-link" href="/">display tournaments</a>
                 </li>
                 <li>
-                    <a className="nav-link" href="/enrollments-list">display enrollments</a>
+                <Link className="nav-link" to={`/enrollments-list/${userId}`}>
+            Display Enrollments
+              </Link>
                 </li>
                
             </ul>
