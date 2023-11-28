@@ -98,7 +98,7 @@ export const getEnrollmentsByUserId = (userId) => {
         try {
             const response = await appApi.get(`/enrollments/${userId}/user-details`)
            console.log('response api get enrollments by id', response.data)
-           dispatch(fulfilled(response.data));
+           dispatch(fulfilled(response.data.data));
             return response.data;
         } catch (error) {
             dispatch(rejected(error.response) || '');          

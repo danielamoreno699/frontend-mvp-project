@@ -22,7 +22,7 @@ import { useParams } from "react-router-dom";
   return (
     <>
   <h2>Enrollments User List: ID {userId}</h2>
-  {/* {enrollments.map((enrollment) => (
+  {enrollments.map((enrollment) => (
     <Card key={enrollment._id}>
       <Card.Body>
         <Card.Title>{enrollment.userId.name}</Card.Title>
@@ -32,11 +32,18 @@ import { useParams } from "react-router-dom";
           <strong>Tournament Name:</strong> {enrollment.tournamentId.name}
           <br />
           <strong>League:</strong> {enrollment.league}
+          <br />
+            <strong>club:</strong> {enrollment.club}
+            <br />
+            <strong>category:</strong> {enrollment.category}
+            <br />
+            <strong>practice_location:</strong> {enrollment.practice_location}
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Button variant="primary">update</Button>
+        <Button variant="danger">delete</Button>
       </Card.Body>
     </Card>
-  ))} */}
+  ))}
 </>
     
 
