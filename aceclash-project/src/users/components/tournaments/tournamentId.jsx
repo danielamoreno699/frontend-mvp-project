@@ -20,6 +20,10 @@ import '../../styles/tournamentsDetails.css';
       const handleGoBack = () => {
         navigate(-1);
       };
+
+      const onHandleCreateEnrollment = () => {
+        navigate(`/enrollment-create/${id}`);
+      }
   
     return (
         <div className="container">
@@ -48,7 +52,7 @@ import '../../styles/tournamentsDetails.css';
           <Button variant="primary" onClick={handleGoBack}>
             Go Back
           </Button>
-          <Button variant="primary">
+          <Button variant="primary" onClick={onHandleCreateEnrollment}>
             Enroll
           </Button>
         </div>
