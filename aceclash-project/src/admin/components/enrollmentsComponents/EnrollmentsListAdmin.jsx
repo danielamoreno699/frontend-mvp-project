@@ -15,7 +15,7 @@ import { deleteEnrollment } from "../../../store/enrollments";
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { enrollments } = useSelector((state) => state.enrollments);
-  console.log('enrollments admin', enrollments);
+  
 
   useEffect(() => {
     dispatch(getAllEnrollmentsUsers());

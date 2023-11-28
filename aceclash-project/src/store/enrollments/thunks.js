@@ -8,7 +8,7 @@ export const getAllEnrollmentsUsers = () => {
     
         try {
             const response = await appApi.get('/enrollments/users')
-            console.log('response admin gett all enrollments', response.data)
+           
             dispatch(fulfilled(response.data));
             
             return response.data;
