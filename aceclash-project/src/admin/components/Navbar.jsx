@@ -16,9 +16,6 @@ const NavbarAdmin = () => {
     const navigate = useNavigate();
     const onLogout = () => {
         dispatch(logout());
-        // localStorage.removeItem('token');
-        // localStorage.removeItem('user');
-        // localStorage.removeItem('token-start-date');
         navigate('/auth/login');
         
     }
