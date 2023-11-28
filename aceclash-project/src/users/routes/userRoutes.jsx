@@ -12,7 +12,7 @@ export const UserRoutes = () => {
     
     <Routes>
         <Route path="/" element={<TournamentsListUser/>} />
-        <Route path="/enrollments" element={<EnrollmentsUserList/>} />
+        <Route path="/enrollments-list" element={<EnrollmentsUserList/>} />
 
 
     </Routes>

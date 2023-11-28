@@ -27,10 +27,10 @@ import '../styles/Navbar.css'
                     <a className="nav-link" href="#" >Logout</a>
                 </li>
                 <li>
-                    <a className="nav-link" href="/tournaments-user">display tournaments</a>
+                    <a className="nav-link" href="/">display tournaments</a>
                 </li>
                 <li>
-                    <a className="nav-link" href="/enrollments">display enrollments</a>
+                    <a className="nav-link" href="/enrollments-list">display enrollments</a>
                 </li>
                
             </ul>

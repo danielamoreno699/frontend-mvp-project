@@ -14,9 +14,9 @@ import { getAllUsers } from "../../../store/user";
     const navigate = useNavigate();
 
     const { tournaments } = useSelector((state) => state.tournaments);
-    console.log('tournaments', tournaments)
+
     const { users } = useSelector((state) => state.users);
-    console.log('users', tournaments)
+   
 
  
     const [selectedData, setSelectedData] = useState({
