@@ -50,8 +50,8 @@ import Swal from 'sweetalert2';
               await dispatch(deleteEnrollment(enrollmentId));
               Swal.fire('Deleted!', 'The user has been deleted.', 'success');
               
-              // Fetch users after a successful delete
-              dispatch(getEnrollmentsByUserId(enrollments.userId));
+              
+              dispatch(getEnrollmentsByUserId(userId));
             } catch (error) {
               console.error('Error deleting user:', error);
               Swal.fire('Error', 'An error occurred while deleting the user.', 'error');
