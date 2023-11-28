@@ -48,7 +48,7 @@ const handleSubmit = async (e) => {
               confirmButtonText: 'ok'
           })
 
-          navigate(`/enrollments-list`);
+          navigate(`/enrollments-list/${id}`);
       } else {
           Swal.fire({
               title: 'Error',
