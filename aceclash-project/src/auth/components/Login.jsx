@@ -24,6 +24,11 @@ export const Login = () => {
     }));
   };
 
+
+  const onHandleGoogleLogin =  () => {
+   window.open('http://localhost:3002/auth/google/callback', '_self');
+  };
+
   const onSubmit = async (event) => {
     event.preventDefault();
 
@@ -96,7 +101,11 @@ export const Login = () => {
 
             </p>
             
-            <button className='google-btn' type='submit'>
+            <button 
+              className='google-btn' 
+              type='submit'
+              onClick={onHandleGoogleLogin}
+              >
                 google 
               </button>
           </div>
