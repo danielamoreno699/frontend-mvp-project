@@ -75,3 +75,8 @@ span {
 input:invalid[focused="true"] + span {
   display: block;
 }
+
+.login-section button.google-btn {
+  background-color: #d21a1a;
+  
+}

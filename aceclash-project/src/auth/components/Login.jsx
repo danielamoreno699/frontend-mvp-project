@@ -93,7 +93,12 @@ export const Login = () => {
               <span className="line">
                 <a href="/auth/register">Register</a>
               </span>
+
             </p>
+            
+            <button className='google-btn' type='submit'>
+                google 
+              </button>
           </div>
         </section>
       </div>
