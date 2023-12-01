@@ -26,7 +26,7 @@ export const Login = () => {
 
 
   const onHandleGoogleLogin =  () => {
-   window.open('http://localhost:3002/auth/google/callback', '_self');
+   window.open('http://localhost:3002/api/auth/google', '_self');
   };
 
   const onSubmit = async (event) => {
