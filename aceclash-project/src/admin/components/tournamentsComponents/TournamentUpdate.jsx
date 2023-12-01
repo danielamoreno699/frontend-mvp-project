@@ -91,7 +91,7 @@ const TournamentUpdate = () => {
           type="text" 
           className="form-control" 
           id="name" 
-          name="nameTournament"
+          name="name"
           value={data.name}
           onChange={onHandleChange}
          
